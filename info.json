@@ -1,8 +1,6 @@
 {
+    "NAME": "Yaysian-Cogs",
     "AUTHOR" : "Yaysian",
-    "INSTALL_MSG" : "Thanks for installing!",
-    "NAME" : "FutureFight",
-    "SHORT" : "Useful commands that pertain to Marvel: Future Fight.",
-    "DESCRIPTION" : "Useful commands that pertain to Marvel: Future Fight.",
-    "TAGS" : ["marvel", "future", "fight"]
+    "SHORT": "Random assorted cogs.",
+    "DESCRIPTION" : "Random assorted cogs that I've worked on."
 }
