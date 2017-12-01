@@ -135,9 +135,8 @@ class FutureFight:
     @commands.command(pass_context=True)
     async def daily(self,ctx):
         """Returns how long until daily reset."""
-        current_time = datetime.datetime.now()
-        # Set hour of daily reset here. Default is in EST.
-        reset_hour = 10
+        current_time = datetime.datetime.utcnow()
+        reset_hour = 15
         daily_reset = datetime.datetime(year=current_time.year,month=current_time.month,day=current_time.day,hour=reset_hour,minute=00,second=0,microsecond=0)
         
         if current_time.hour > reset_hour:
@@ -156,16 +155,14 @@ class FutureFight:
     @commands.command(pass_context=True)
     async def weekly(self,ctx):
         """Returns how long until weekly reset."""
-        current_time = datetime.datetime.now()
-        print(current_time)
-        # Set hour of weekly reset here. Default is in EST.
-        reset_hour = 20
+        current_time = datetime.datetime.utcnow()
+        reset_hour = 1
         day_deficit = 0
         
-        if current_time.weekday() < 3:
-            day_deficit = 3 - current_time.weekday()
+        if current_time.weekday() < 4:
+            day_deficit = 4 - current_time.weekday()
         elif current_time.weekday() > 3:
-            day_deficit = 10 - current_time.weekday()
+            day_deficit = 11 - current_time.weekday()
         
         weekly_reset = datetime.datetime(year=current_time.year,month=current_time.month,day=current_time.day,hour=reset_hour,minute=00,second=0,microsecond=0) + datetime.timedelta(days=day_deficit)
         time_remaining = weekly_reset - current_time
