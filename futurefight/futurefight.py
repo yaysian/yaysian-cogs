@@ -215,13 +215,17 @@ class FutureFight:
                     ultimates = True
                 rank_str = self.get_star_string(rank, ultimates, rs, ms)
                 em.add_field(name=char_name,value=rank_str,inline=True)
-                
+            
+            ultimates = False
+            char_name = random.choice(pull_list)
+            if char_name in ult_list:
+                ultimates = True
             if guaranteed_ult == True:
                 em.add_field(name=random.choice(ult_six_list),value=self.get_star_string(6, True, rs, ms),inline=True)
             elif five_star == False:
-                em.add_field(name=random.choice(pull_list),value=self.get_star_string(5, False, rs, ms),inline=True)
+                em.add_field(name=char_name,value=self.get_star_string(5, ultimates, rs, ms),inline=True)
             else:
-                em.add_field(name=random.choice(pull_list),value=self.get_star_string(random.randint(3,6),False, rs, ms),inline=True)
+                em.add_field(name=char_name,value=self.get_star_string(random.randint(3,6), ultimates, rs, ms),inline=True)
                 
             await self.bot.send_message(ctx.message.channel,embed=em)
     
