@@ -1,5 +1,7 @@
 from redbot.core import commands
 import json
+from pathlib import Path
+import os
 
 from redbot.core.bot import Red
 
@@ -9,7 +11,10 @@ class SquanchBattleUnite(commands.Cog):
     def __init__(self, bot: Red):
         super().__init__()
         self.bot = bot
-        self.characters = json.load(open("characters.json"))
+        json_path = os.path.join(os.path.dirname(__file__), "data/characters.json")
+        print(json_path)
+        with open(json_path, encoding='utf-8') as data_file:
+            self.bot.characters = json.loads(data_file.read())
 
     @commands.command()
     async def test(self, ctx):
@@ -19,7 +24,7 @@ class SquanchBattleUnite(commands.Cog):
     @commands.command()
     async def pull(self, ctx):
         """Pull"""
-        await ctx.send(self.characters)
+        await ctx.send(self.bot.characters)
 
 
     def summon_rate(self, num):
