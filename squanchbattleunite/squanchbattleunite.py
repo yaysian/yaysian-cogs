@@ -60,7 +60,7 @@ class SquanchBattleUnite(commands.Cog):
         embed = discord.Embed()
         embed.set_image(url="attachment://{}".format(summon_character["imagename"]))
         embed.set_author(name="{}".format(summon_character["name"]), icon_url=ELEMENT_DICT[summon_character["element"]])
-        embed.set_footer(icon_url=RARITY_DICT[summon_character["element"]])
+        embed.set_footer(icon_url=RARITY_DICT[summon_character["rarity"]])
 
         await ctx.send(file=file, embed=embed)
 
