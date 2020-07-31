@@ -64,7 +64,7 @@ class SquanchBattleUnite(commands.Cog):
 
         summon_character = random.choice(summon_pool)
         file = discord.File(os.path.join(os.path.dirname(__file__), summon_character["imagepath"]), summon_character["imagename"])
-        embed = discord.Embed(title="{}".format(summon_character["name"]), description="**Rarity: {} | Element: {}".format(RARITY_DICT[summon_character["rarity"]], ELEMENT_DICT[summon_character["element"]]))
+        embed = discord.Embed(title="{}".format(summon_character["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character["rarity"]], ELEMENT_DICT[summon_character["element"]]))
         embed.set_image(url="attachment://{}".format(summon_character["imagename"]))
 
         await ctx.send(file=file, embed=embed)
