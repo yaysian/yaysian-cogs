@@ -9,19 +9,19 @@ import ast
 from redbot.core.bot import Red
 
 ELEMENT_DICT = {
-    "beef": "https://cdn.discordapp.com/emojis/737481976512118816.png?v=1",
-    "gout": "https://cdn.discordapp.com/emojis/737482102487908432.png?v=1",
-    "squanch": "https://cdn.discordapp.com/emojis/737482123778457671.png?v=1",
-    "fake": "https://cdn.discordapp.com/emojis/737482077473079366.png?v=1",
-    "platano": "https://cdn.discordapp.com/emojis/737482113619591179.png?v=1",
-    "bitch": "https://cdn.discordapp.com/emojis/737482048591233105.png?v=1"
+    "beef": "<:beef:737481976512118816>",
+    "gout": "<:gout:737482102487908432>",
+    "squanch": "<:squanch:737482123778457671>",
+    "fake": "<:fake:737482077473079366>",
+    "platano": "<:platano:737482113619591179>",
+    "bitch": "<:bitch:737482048591233105>"
 }
 
 RARITY_DICT = {
-    1 : "https://cdn.discordapp.com/emojis/738662293117730830.png?v=1",
-    2: "https://cdn.discordapp.com/emojis/738662323442679848.png?v=1",
-    3: "https://cdn.discordapp.com/emojis/738662345219375205.png?v=1",
-    4: "https://cdn.discordapp.com/emojis/738662375401586749.png?v=1"
+    1 : "<:mhoo:738662293117730830>",
+    2: "<:mh:738662323442679848>",
+    3: "<:mhi:738662345219375205>",
+    4: "<:mhio:738662375401586749>"
 }
 
 RARITY_NAME_DICT = {
@@ -64,10 +64,8 @@ class SquanchBattleUnite(commands.Cog):
 
         summon_character = random.choice(summon_pool)
         file = discord.File(os.path.join(os.path.dirname(__file__), summon_character["imagepath"]), summon_character["imagename"])
-        embed = discord.Embed()
-        embed.set_image(url="attachment://{}".format(summon_character["imagename"]))
-        embed.set_author(name="{}".format(summon_character["name"]), icon_url=ELEMENT_DICT[summon_character["element"]])
-        embed.set_footer(text=RARITY_NAME_DICT[summon_character["rarity"]],icon_url=RARITY_DICT[summon_character["rarity"]])
+        embed = discord.Embed(title="{}".format(summon_character["name"]), description="**Rarity: {} | Element: {}".format(RARITY_DICT[summon_character["rarity"]], ELEMENT_DICT[summon_character["element"]]))
+        embed.set_image(url="attachment://{}".format(summon_character["imagename"]))s
 
         await ctx.send(file=file, embed=embed)
 
