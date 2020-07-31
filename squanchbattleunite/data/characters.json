@@ -188,5 +188,47 @@
         "imagepath": "images/MHIO/XavierBotSingularity.png",
         "imagename": "XavierBotSingularity.png",
         "element": "platano"
+    },
+    "27" : {
+        "name": "Adrian (Kuya Bergil)",
+        "rarity": 1,
+        "imagepath": "images/M/AdrianKuyaBergil.png",
+        "imagename": "AdrianKuyaBergil.png",
+        "element": "squanch"
+    },
+    "28" : {
+        "name": "Sam (Forma De Eboy)",
+        "rarity": 1,
+        "imagepath": "images/M/SamFormaDeEboy.png",
+        "imagename": "SamFormaDeEboy.png",
+        "element": "gout"
+    },
+    "29" : {
+        "name" : "Xavier (Square Up)",
+        "rarity": 1,
+        "imagepath": "images/M/XavierSquareUp.png",
+        "imagename": "XavierSquareUp.png",
+        "element": "bitch"
+    },
+    "30" : {
+        "name" : "Rafy (ASCII Overload)",
+        "rarity": 2,
+        "imagepath": "images/MH/RafyAsciiOverload.png",
+        "imagename": "RafyAsciiOverload.png",
+        "element": "fake"
+    },
+    "31" : {
+        "name" : "Rafy (Florida's Nectar)",
+        "rarity": 2,
+        "imagepath": "images/MH/RafyFloridasNectar.png",
+        "imagename": "RafyFloridasNectar.png",
+        "element": "platano"
+    },
+    "32" : {
+        "name" : "Sam (Insect Emperor)",
+        "rarity": 4,
+        "imagepath": "images/MHIO/SamInsectEmperor.png",
+        "imagename": "SamInsectEmperor.png",
+        "element": "squanch"
     }
 }
