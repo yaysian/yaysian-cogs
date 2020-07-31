@@ -1,32 +1,38 @@
-[
-    {
-        "id": 0,
+{
+    "0" : {
         "name": "Dennis (Undercover)",
         "rarity": 1,
-        "image": "images/M/Dennis_Undercover.png"
+        "imagepath": "images/M/DennisUndercover.png",
+        "imagename": "DennisUndercover.png",
+        "element": "beef"
     },
-    {
-        "id": 1,
+    "1" : {
         "name": "Rafy (Pajama)",
         "rarity": 1,
-        "image": "images/M/Rafy_Pajama.png"
+        "imagepath": "images/M/RafyPajama.png",
+        "imagename": "RafyPajama.png",
+        "element": "gout"
     },
-    {
-        "id": 2,
+    "2" : {
         "name": "Phil (He Been Knowin')",
         "rarity": 2,
-        "image": "images/MH/Phil_He_Been_Knowin.png"
+        "imagepath": "images/MH/PhilHeBeenKnowin.png",
+        "imagename": "PhilHeBeenKnown.png",
+        "element": "bitch"
     },
-    {
-        "id": 3,
+    "3" :{
         "name": "Jose (Valentines Day)",
         "rarity": 3,
-        "image": "images/MHI/Jose_Valentines_Day.png"
+        "imagepath": "images/MHI/JoseValentinesDay.png",
+        "imagename": "JoseValentinesDay.png",
+        "element": "bitch"
+
     },
-    {
-        "id": 4,
+    "4" : {
         "name": "Jose「Asstral Vision」",
         "rarity": 4,
-        "image": "images/MHIO/Jose_Asstral_Vision.png"
+        "imagepath": "images/MHIO/JoseAsstralVision.png",
+        "imagename": "JoseAsstralVision.png",
+        "element": "beef"
     }
-]
+}
