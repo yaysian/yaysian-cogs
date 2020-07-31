@@ -230,5 +230,12 @@
         "imagepath": "images/MHIO/SamInsectEmperor.png",
         "imagename": "SamInsectEmperor.png",
         "element": "squanch"
+    },
+    "33" : {
+        "name" : "Richard (Phonon Main)",
+        "rarity": 3,
+        "imagepath": "images/MHI/RichardPhononMain.png",
+        "imagename": "RichardPhononMain.png",
+        "element": "bitch"
     }
 }
