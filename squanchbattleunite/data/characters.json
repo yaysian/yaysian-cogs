@@ -34,5 +34,159 @@
         "imagepath": "images/MHIO/JoseAsstralVision.png",
         "imagename": "JoseAsstralVision.png",
         "element": "beef"
+    },
+    "5" : {
+        "name": "Dennis (Yare Yare Daze)",
+        "rarity": 1,
+        "imagepath": "images/M/DennisYareYareDaze.png",
+        "imagename": "DennisYareYareDaze.png",
+        "element": "platano"
+    },
+    "6" : {
+        "name": "Josh (Ki Charge)",
+        "rarity": 1,
+        "imagepath": "images/M/JoshKiCharge.png",
+        "imagename": "JoshKiCharge.png",
+        "element": "fake"
+    },
+    "7" : {
+        "name": "Larry (Fated Battle)",
+        "rarity": 1,
+        "imagepath": "images/M/LarryFatedBattle.png",
+        "imagename": "LarryFatedBattle.png",
+        "element": "beef"
+    },
+    "8" : {
+        "name": "Maxx (DQ'd For Pausing)",
+        "rarity": 1,
+        "imagepath": "images/M/MaxxDQ.png",
+        "imagename": "MaxxDQ.png",
+        "element": "platano"
+    },
+    "9" : {
+        "name": "Phil (Am I Dying?)",
+        "rarity": 1,
+        "imagepath": "images/M/PhilAmIDying.png",
+        "imagename": "PhilAmIDying.png",
+        "element": "squanch"
+    },
+    "10": {
+        "name": "Phil (With Hair)",
+        "rarity": 1,
+        "imagepath": "images/M/PhilWithHair.png",
+        "imagename": "PhilWithHair.png",
+        "element": "fake"
+    },
+    "11": {
+        "name": "Ryan (Groundhog Day)",
+        "rarity": 1,
+        "imagepath": "images/M/RyanGroundhogDay.png",
+        "imagename": "RyanGroundhogDay.png",
+        "element": "bitch"
+    },
+    "12": {
+        "name": "BOLY (IT'S BOLY!!!!)",
+        "rarity": 2,
+        "imagepath": "images/MH/BolyItsBoly.png",
+        "imagename": "BolyItsBoly.png",
+        "element": "platano"
+    },
+    "13": {
+        "name": "Dennis (Kekkei Genkai)",
+        "rarity": 2,
+        "imagepath": "images/MH/DennisKekkeiGenkai.png",
+        "imagename": "DennisKekkeiGenkai.png",
+        "element": "squanch"
+    },
+    "14" : {
+        "name": "Dennis (Kekkei Genkai)",
+        "rarity": 2,
+        "imagepath": "images/MH/DennisKekkeiGenkai.png",
+        "imagename": "DennisKekkeiGenkai.png",
+        "element": "squanch"
+    },
+    "15" : {
+        "name": "Larry (Proud Papa)",
+        "rarity": 2,
+        "imagepath": "images/MH/LarryProudPapa.png",
+        "imagename": "LarryProudPapa.png",
+        "element": "gout"
+    },
+    "16" : {
+        "name": "Maxx (Virtual Self)",
+        "rarity": 2,
+        "imagepath": "images/MH/MaxxVirtualSelf.png",
+        "imagename": "MaxxVirtualSelf.png",
+        "element": "gout"
+    },
+    "17" : {
+        "name": "Maxx (Existential Nightmare)",
+        "rarity": 3,
+        "imagepath": "images/MHI/MaxxExistentialNightmare.png",
+        "imagename": "MaxxExistentialNightmare.png",
+        "element": "beef"
+    },
+    "18" : {
+        "name": "Phil (S A D B O I Z)",
+        "rarity": 3,
+        "imagepath": "images/MHI/PhilSADBOIZ.png",
+        "imagename": "PhilSADBOIZ.png",
+        "element": "gout"
+    },
+    "19" : {
+        "name": "Rafy (Twerkromancer)",
+        "rarity": 3,
+        "imagepath": "images/MHI/RafyTwerkromancer.png",
+        "imagename": "RafyTwerkromancer.png",
+        "element": "bitch"
+    },
+    "20" : {
+        "name": "Rollback Dog",
+        "rarity": 3,
+        "imagepath": "images/MHI/RollbackDog.png",
+        "imagename": "RollbackDog.png",
+        "element": "squanch"
+    },
+    "21" : {
+        "name": "Xavier-Bot (Activated)",
+        "rarity": 3,
+        "imagepath": "images/MHI/XavierBotActivated.png",
+        "imagename": "XavierBotActivated.png",
+        "element": "fake"
+    },
+    "22": {
+        "name": "Adrian (Glizzy Guardian)",
+        "rarity": 4,
+        "imagepath": "images/MHIO/AdrianGlizzyGuardian.png",
+        "imagename": "AdrianGlizzyGuardian.png",
+        "element": "beef"
+    },
+    "23" : {
+        "name": "Dennis (Post Time Skip)",
+        "rarity": 4,
+        "imagepath": "images/MHIO/DennisPostTimeSkip.png",
+        "imagename": "PostTimeSkip.png",
+        "element": "gout"
+    },
+    "24" : {
+        "name": "Maxx (Boop Boop Boop)",
+        "rarity": 4,
+        "imagepath": "images/MHIO/MaxxBoopBoopBoop.png",
+        "imagename": "MaxxBoopBoopBoop.png",
+        "element": "bitch"
+    },
+    "25" : {
+        "name": "Playstation One Venom",
+        "rarity": 4,
+        "imagepath": "images/MHIO/PlaystationOneVenom.png",
+        "imagename": "PlaystationOneVenom.png",
+        "element": "fake"
+    },
+    "26" : {
+        "name": "Xavier-Bot (Singularity)",
+        "rarity": 4,
+        "imagepath": "images/MHIO/XavierBotSingularity.png",
+        "imagename": "XavierBotSingularity.png",
+        "element": "platano"
     }
 }
