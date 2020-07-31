@@ -17,6 +17,13 @@ ELEMENT_DICT = {
     "bitch": "https://cdn.discordapp.com/emojis/737482048591233105.png?v=1"
 }
 
+RARITY_DICT = {
+    1 : "<:mhoo:738662293117730830>",
+    2: "<:mh:738662323442679848>",
+    3: "<:mhi:738662345219375205>",
+    4: "<:mhio:738662375401586749>"
+}
+
 class SquanchBattleUnite(commands.Cog):
     """Squanch Battle UNITE is a MHIO-based gacha game."""
 
@@ -52,7 +59,7 @@ class SquanchBattleUnite(commands.Cog):
         file = discord.File(os.path.join(os.path.dirname(__file__), summon_character["imagepath"]), summon_character["imagename"])
         embed = discord.Embed()
         embed.set_image(url="attachment://{}".format(summon_character["imagename"]))
-        embed.set_author(name=summon_character["name"], icon_url=ELEMENT_DICT[summon_character["element"]])
+        embed.set_author(name="{} {}".format(summon_character["name"], RARITY_DICT(summon_character["rarity"])), icon_url=ELEMENT_DICT[summon_character["element"]])
 
         await ctx.send(file=file, embed=embed)
 
