@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "name": "Dennis (Undercover)",
+        "rarity": 1,
+        "image": "images/M/Dennis_Undercover.png"
+    },
+    {
+        "id": 1,
+        "name": "Rafy (Pajama)",
+        "rarity": 1,
+        "image": "images/M/Rafy_Pajama.png"
+    },
+    {
+        "id": 2,
+        "name": "Phil (He Been Knowin')",
+        "rarity": 2,
+        "image": "images/MH/Phil_He_Been_Knowin.png"
+    },
+    {
+        "id": 3,
+        "name": "Jose (Valentines Day)",
+        "rarity": 3,
+        "image": "images/MHI/Jose_Valentines_Day.png"
+    },
+    {
+        "id": 4,
+        "name": "Jose「Asstral Vision」",
+        "rarity": 4,
+        "image": "images/MHIO/Jose_Asstral_Vision.png"
+    }
+]
