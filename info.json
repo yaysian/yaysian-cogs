@@ -1,6 +1,6 @@
 {
     "name": "Yaysian-Cogs",
-    "author" : "Yaysian",
+    "author" : ["Yaysian (Yaysian#6499)"],
     "short": "Random assorted cogs.",
     "description" : "Random assorted cogs that I've worked on."
 }
