@@ -18,10 +18,10 @@ ELEMENT_DICT = {
 }
 
 RARITY_DICT = {
-    1 : "<:mhoo:738662293117730830>",
-    2: "<:mh:738662323442679848>",
-    3: "<:mhi:738662345219375205>",
-    4: "<:mhio:738662375401586749>"
+    1 : "https://cdn.discordapp.com/emojis/738662293117730830.png?v=1",
+    2: "https://cdn.discordapp.com/emojis/738662323442679848.png?v=1",
+    3: "https://cdn.discordapp.com/emojis/738662345219375205.png?v=1",
+    4: "https://cdn.discordapp.com/emojis/738662375401586749.png?v=1"
 }
 
 class SquanchBattleUnite(commands.Cog):
@@ -59,7 +59,8 @@ class SquanchBattleUnite(commands.Cog):
         file = discord.File(os.path.join(os.path.dirname(__file__), summon_character["imagepath"]), summon_character["imagename"])
         embed = discord.Embed()
         embed.set_image(url="attachment://{}".format(summon_character["imagename"]))
-        embed.set_author(name="{} {}".format(summon_character["name"], RARITY_DICT[summon_character["rarity"]]), icon_url=ELEMENT_DICT[summon_character["element"]])
+        embed.set_author(name="{}".format(summon_character["name"]), icon_url=ELEMENT_DICT[summon_character["element"]])
+        embed.set_footer(icon_url=RARITY_DICT[summon_character["element"]])
 
         await ctx.send(file=file, embed=embed)
 
