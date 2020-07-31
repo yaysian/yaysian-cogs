@@ -237,5 +237,12 @@
         "imagepath": "images/MHI/RichardPhononMain.png",
         "imagename": "RichardPhononMain.png",
         "element": "bitch"
+    },
+    "34" : {
+        "name" : "Rafy (Feminized Shootyhoo)",
+        "rarity": 2,
+        "imagepath": "images/MH/RafyFeminizedShootyhoo.png",
+        "imagename": "RafyFeminizedShootyhoo.png",
+        "element": "squanch"
     }
 }
