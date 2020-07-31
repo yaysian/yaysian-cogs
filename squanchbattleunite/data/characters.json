@@ -244,5 +244,12 @@
         "imagepath": "images/MH/RafyFeminizedShootyhoo.png",
         "imagename": "RafyFeminizedShootyhoo.png",
         "element": "squanch"
+    },
+    "35" : {
+        "name" : "Ace (Smashin' N' Ridin')",
+        "rarity": 4,
+        "imagepath": "images/MHIO/AceSmashinNRidin.png",
+        "imagename": "AceSmashinNRidin.png",
+        "element": "beef"
     }
 }
