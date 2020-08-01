@@ -74,7 +74,7 @@ class SquanchBattleUnite(commands.Cog):
         await self.config.user(ctx.author).user_data.characters.set(current_characters.append(summon_character[0]))
         await ctx.send(file=file, embed=embed)
 
-    @commands.command()\
+    @commands.command()
     async def chars(self, ctx):
         """Chars"""
         current_characters = self.config.user(ctx.author).user_data.characters()
