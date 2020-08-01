@@ -1,4 +1,5 @@
 from redbot.core import commands
+from redbot.core import Config
 import json
 from pathlib import Path
 import os
@@ -39,12 +40,14 @@ class SquanchBattleUnite(commands.Cog):
         self.bot = bot
         json_path = os.path.join(os.path.dirname(__file__), "data/characters.json")
         with open(json_path, encoding='utf-8') as data_file:
-            self.bot.characters = json.loads(data_file.read())
-
-    @commands.command()
-    async def test(self, ctx):
-        """test"""
-        await ctx.send("test!")
+            self.characters = json.loads(data_file.read())
+        self.config = Config.get_conf(self, identifier=1234567890)
+        default_user = {
+            'user_data' : {
+                'characters': []
+            }
+        }
+        self.config.register_user(**default_user)
 
     @commands.command()
     async def pull(self, ctx):
@@ -63,9 +66,9 @@ class SquanchBattleUnite(commands.Cog):
             summon_pool = self.get_character_pool(4)
 
         summon_character = random.choice(summon_pool)
-        file = discord.File(os.path.join(os.path.dirname(__file__), summon_character["imagepath"]), summon_character["imagename"])
-        embed = discord.Embed(title="{}".format(summon_character["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character["rarity"]], ELEMENT_DICT[summon_character["element"]]))
-        embed.set_image(url="attachment://{}".format(summon_character["imagename"]))
+        file = discord.File(os.path.join(os.path.dirname(__file__), summon_character[1]["imagepath"]), summon_character[1]["imagename"])
+        embed = discord.Embed(title="{}".format(summon_character[1]["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character[1]["rarity"]], ELEMENT_DICT[summon_character[1]["element"]]))
+        embed.set_image(url="attachment://{}".format(summon_character[1]["imagename"]))
 
         await ctx.send(file=file, embed=embed)
 
@@ -85,9 +88,9 @@ class SquanchBattleUnite(commands.Cog):
 
     def get_character_pool(self, num):
         character_pool = []
-        for key in self.bot.characters:
-            if self.bot.characters[key]["rarity"] == num:
-                character_pool.append(self.bot.characters[key])
+        for key in self.characters:
+            if self.characters[key]["rarity"] == num:
+                character_pool.append([key, self.characters[key]])
         return character_pool
 
         
