@@ -70,7 +70,7 @@ class SquanchBattleUnite(commands.Cog):
         embed = discord.Embed(title="{}".format(summon_character[1]["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character[1]["rarity"]], ELEMENT_DICT[summon_character[1]["element"]]))
         embed.set_image(url="attachment://{}".format(summon_character[1]["imagename"]))
 
-        current_characters = self.config.user(ctx.author).user_data.characters()
+        current_characters = await self.config.user(ctx.author).user_data.characters()
         await self.config.user(ctx.author).user_data.characters.set(current_characters.append(summon_character[0]))
         await ctx.send(file=file, embed=embed)
 
