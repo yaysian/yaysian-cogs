@@ -32,6 +32,13 @@ RARITY_NAME_DICT = {
     4 : "My Hoo Is Omega"
 }
 
+RARITY_COLOR_DICT = {
+    1 : 0x694a39,
+    2 : 0xd0d0e0,
+    3 : 0xdabf7e,
+    4 : 0xa6dfff
+}
+
 class SquanchBattleUnite(commands.Cog):
     """Squanch Battle UNITE is a MHIO-based gacha game."""
 
@@ -65,7 +72,7 @@ class SquanchBattleUnite(commands.Cog):
 
         summon_character = random.choice(summon_pool)
         file = discord.File(os.path.join(os.path.dirname(__file__), summon_character[1]["imagepath"]), summon_character[1]["imagename"])
-        embed = discord.Embed(title="{}".format(summon_character[1]["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character[1]["rarity"]], ELEMENT_DICT[summon_character[1]["element"]]))
+        embed = discord.Embed(title="{}".format(summon_character[1]["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character[1]["rarity"]], ELEMENT_DICT[summon_character[1]["element"]]),color=RARITY_COLOR_DICT[summon_character[1]])
         embed.set_image(url="attachment://{}".format(summon_character[1]["imagename"]))
 
         async with self.config.user(ctx.author).characters() as characters:
