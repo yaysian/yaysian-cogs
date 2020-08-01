@@ -251,5 +251,12 @@
         "imagepath": "images/MHIO/AceSmashinNRidin.png",
         "imagename": "AceSmashinNRidin.png",
         "element": "beef"
+    },
+    "36" : {
+        "name" : "Keith (Dawn Of The Final Day)",
+        "rarity": 1,
+        "imagepath": "images/M/KeithDawnOfTheFinalDay.png",
+        "imagename": "KeithDawnOfTheFinalDay.png",
+        "element": "platano"
     }
 }
