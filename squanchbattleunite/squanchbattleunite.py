@@ -69,7 +69,7 @@ class SquanchBattleUnite(commands.Cog):
         embed.set_image(url="attachment://{}".format(summon_character[1]["imagename"]))
 
         async with self.config.user(ctx.author).characters() as characters:
-            characters.append(summon_characters[0])
+            characters.append(summon_character[0])
         await ctx.send(file=file, embed=embed)
 
     @commands.command()
