@@ -34,7 +34,7 @@ RARITY_NAME_DICT = {
 
 RARITY_COLOR_DICT = {
     1 : 0x694a39,
-    2 : 0xd0d0e0,
+    2 : 0xadadc0,
     3 : 0xdabf7e,
     4 : 0xa6dfff
 }
