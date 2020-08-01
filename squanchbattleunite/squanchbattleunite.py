@@ -78,7 +78,7 @@ class SquanchBattleUnite(commands.Cog):
     async def chars(self, ctx):
         """Chars"""
         current_characters = self.config.user(ctx.author).user_data.characters()
-        ctx.send(current_characters)
+        await ctx.send(current_characters)
 
     def summon_rate(self, num):
         #3%
