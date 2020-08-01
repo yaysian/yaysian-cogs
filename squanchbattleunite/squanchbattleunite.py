@@ -43,9 +43,7 @@ class SquanchBattleUnite(commands.Cog):
             self.characters = json.loads(data_file.read())
         self.config = Config.get_conf(self, identifier=1234567890)
         default_user = {
-            'user_data' : {
-                'characters': []
-            }
+            "characters" : []
         }
         self.config.register_user(**default_user)
 
@@ -70,8 +68,8 @@ class SquanchBattleUnite(commands.Cog):
         embed = discord.Embed(title="{}".format(summon_character[1]["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character[1]["rarity"]], ELEMENT_DICT[summon_character[1]["element"]]))
         embed.set_image(url="attachment://{}".format(summon_character[1]["imagename"]))
 
-        current_characters = await self.config.user(ctx.author).user_data.characters()
-        await self.config.user(ctx.author).user_data.characters.set(current_characters.append(summon_character[0]))
+        async with self.config.user(ctx.author).characters() as characters:
+            characters.append(summon_characters[0])
         await ctx.send(file=file, embed=embed)
 
     @commands.command()
