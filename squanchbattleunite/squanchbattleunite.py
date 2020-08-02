@@ -83,7 +83,15 @@ class SquanchBattleUnite(commands.Cog):
     async def chars(self, ctx):
         """Chars"""
         async with self.config.user(ctx.author).characters() as characters:
-            await ctx.send(characters)
+            current_characters = characters
+        
+        embed = discord.Embed(title="{}'s Characters".format(ctx.author.name))
+        char_num = 1
+        for character in current_characters:
+            char_info = self.get_character_info(character)
+            embed.add_field(name="{}. {}".format(char_num, char_info["name"]), value="{} {}".format(char_info["element"], char_info["rarity"]))
+        
+        await ctx.send(embed=embed)
 
     def summon_rate(self, num):
         #3%
@@ -105,5 +113,8 @@ class SquanchBattleUnite(commands.Cog):
             if self.characters[key]["rarity"] == num:
                 character_pool.append([key, self.characters[key]])
         return character_pool
+
+    def get_character_info(self, num):
+        return self.characters[num]
 
         
