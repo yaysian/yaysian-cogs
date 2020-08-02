@@ -90,7 +90,7 @@ class SquanchBattleUnite(commands.Cog):
             ":play_forward" : menus.next_page
         }
 
-        await menus.menu(ctx, page=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
+        await menus.menu(ctx, pages=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
 
     def summon_rate(self, num):
         #3%
