@@ -8,7 +8,7 @@ import discord
 import ast
 
 from redbot.core.bot import Red
-import redbot.core.utils.menus as menus
+from redbot.core.utils import menus
 
 ELEMENT_DICT = {
     "beef": "<:beef:737481976512118816>",
@@ -86,15 +86,7 @@ class SquanchBattleUnite(commands.Cog):
         async with self.config.user(ctx.author).characters() as characters:
             current_characters = characters
         
-        embed = discord.Embed(title="{}'s Characters".format(ctx.author.name))
-        char_num = 1
-        for character in current_characters:
-            if char_num <= 15:
-                char_info = self.get_character_info(character)
-                embed.add_field(name="{}. {}".format(char_num, char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
-                char_num += 1
-        
-        await menus.menu(ctx, pages=[embed])
+        await menus.PagedMenu.send_and_wait(ctx, pages=self.create_character_pages(current_characters))
 
     def summon_rate(self, num):
         #3%
@@ -119,6 +111,21 @@ class SquanchBattleUnite(commands.Cog):
 
     def get_character_info(self, num):
         return self.characters[num]
+
+    def create_character_pages(self, characters)
+        char_num = 1
+        page_num = 0
+        pages = []
+        for character in characters:
+            embed = discord.Embed(title="{}'s Characters".format(ctx.author.name))
+            if char_num <= 15:
+                char_info = self.get_character_info(character)
+                embed.add_field(name="{}. {}".format(char_num*(page_num*15), char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
+                char_num += 1
+            pages.append(embed)
+        return pages
+
+            
     
 
 
