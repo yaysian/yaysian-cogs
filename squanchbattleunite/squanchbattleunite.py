@@ -87,6 +87,7 @@ class SquanchBattleUnite(commands.Cog):
             current_characters = characters
         
         CHAR_DICT = {
+            "◀️" : menus.prev_page,
             "▶️" : menus.next_page
         }
 
