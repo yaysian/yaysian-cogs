@@ -124,7 +124,7 @@ class SquanchBattleUnite(commands.Cog):
             embed = discord.Embed(title="{}'s Characters".format(ctx.author.name))
             if char_num <= 15:
                 char_info = self.get_character_info(character)
-                embed.add_field(name="{}. {}".format(char_num*(page_num*15), char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
+                embed.add_field(name="{}. {}".format(char_num+(page_num*15), char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
                 char_num += 1
             pages.append(embed)
             page_num += 1
