@@ -89,7 +89,8 @@ class SquanchBattleUnite(commands.Cog):
         char_num = 1
         for character in current_characters:
             char_info = self.get_character_info(character)
-            embed.add_field(name="{}. {}".format(char_num, char_info["name"]), value="{} {}".format(char_info["element"], char_info["rarity"]))
+            embed.add_field(name="{}. {}".format(char_num, char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
+            char_num += 1
         
         await ctx.send(embed=embed)
 
