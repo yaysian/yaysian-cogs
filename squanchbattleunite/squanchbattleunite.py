@@ -87,7 +87,7 @@ class SquanchBattleUnite(commands.Cog):
             current_characters = characters
         
         CHAR_DICT = {
-            "\U00025B6" : menus.next_page()
+            "\U000025B6" : menus.next_page()
         }
 
         await menus.menu(ctx, page=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
