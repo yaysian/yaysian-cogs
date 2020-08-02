@@ -128,6 +128,7 @@ class SquanchBattleUnite(commands.Cog):
             char_num += 1
             if char_num >= 15:
                 pages.append(embed)
+                embed.clear_fields()
                 page_num += 1
                 char_num = 1
         return pages
