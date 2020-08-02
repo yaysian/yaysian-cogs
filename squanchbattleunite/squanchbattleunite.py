@@ -86,7 +86,11 @@ class SquanchBattleUnite(commands.Cog):
         async with self.config.user(ctx.author).characters() as characters:
             current_characters = characters
         
-        await menus.PagedMenu.send_and_wait(ctx, pages=self.create_character_pages(ctx, current_characters))
+        CHAR_DICT = {
+            "\U00025B6" : menus.next_page()
+        }
+
+        await menus.menu(ctx, page=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
 
     def summon_rate(self, num):
         #3%
