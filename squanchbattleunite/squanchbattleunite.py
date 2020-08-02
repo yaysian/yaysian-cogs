@@ -8,6 +8,7 @@ import discord
 import ast
 
 from redbot.core.bot import Red
+from redbot.core.utils.menus import menu, start_adding_reactions
 
 ELEMENT_DICT = {
     "beef": "<:beef:737481976512118816>",
@@ -93,7 +94,7 @@ class SquanchBattleUnite(commands.Cog):
                 embed.add_field(name="{}. {}".format(char_num, char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
                 char_num += 1
         
-        await ctx.send(embed=embed)
+        await menu(ctx, pages=[embed])
 
     def summon_rate(self, num):
         #3%
@@ -118,5 +119,7 @@ class SquanchBattleUnite(commands.Cog):
 
     def get_character_info(self, num):
         return self.characters[num]
+    
+
 
         
