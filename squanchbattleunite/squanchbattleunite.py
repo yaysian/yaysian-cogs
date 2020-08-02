@@ -87,7 +87,7 @@ class SquanchBattleUnite(commands.Cog):
             current_characters = characters
         
         CHAR_DICT = {
-            ":play_forward:" : menus.next_page
+            "▶️" : menus.next_page
         }
 
         await menus.menu(ctx, pages=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
