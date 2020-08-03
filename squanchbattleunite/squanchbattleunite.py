@@ -99,6 +99,11 @@ class SquanchBattleUnite(commands.Cog):
         else:
             await ctx.send(embed=pages[0])
     
+    @commands.command()
+    async def clear(self, ctx):
+        async with self.config.user(ctx.author).characters() as characters:
+            characters = [s]
+    
     async def error(self, ctx, message):
         file = discord.File(os.path.join(os.path.dirname(__file__), "images/PakEDerm.png"), "PakEDerm.png")
         embed = discord.Embed(title="Error", description=message, color=discord.Color.red())
