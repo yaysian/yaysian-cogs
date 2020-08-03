@@ -89,10 +89,19 @@ class SquanchBattleUnite(commands.Cog):
         
         CHAR_DICT = {
             "◀️" : menus.prev_page,
+            "⏹️" : menus.close_menu,
             "▶️" : menus.next_page
         }
 
         await menus.menu(ctx, pages=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
+    
+    @commands.command()
+    async def error_message(self, ctx, message):
+        file = discord.File(os.path.join(os.path.dirname(__file__), "images/PakEDerm.png"), "PakEDerm.png")
+        embed = discord.Embed(title="Error", value=message)
+        embed.set_thumbnail(url="attachment://PakEDerm.png")
+
+        await ctx.send(embed=embed, file=file)
 
     def summon_rate(self, num):
         #3%
