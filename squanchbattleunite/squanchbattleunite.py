@@ -142,7 +142,7 @@ class SquanchBattleUnite(commands.Cog):
                 page_num += 1
                 char_num = 1
         if char_num != 1:
-            empty_spaces = (char_num-1) % 3
+            empty_spaces = char_num % 3
             for x in range(empty_spaces):
                 embed.add_field(name="⠀", value="⠀")
             pages.append(copy.deepcopy(embed))
