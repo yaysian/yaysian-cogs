@@ -142,7 +142,7 @@ class SquanchBattleUnite(commands.Cog):
                 page_num += 1
                 char_num = 1
         if char_num != 1:
-            empty_spaces = char_num % 3
+            empty_spaces = (char_num-1) % 3
             print(char_num)
             print(empty_spaces)
             for x in range(empty_spaces):
