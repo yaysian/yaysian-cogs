@@ -96,9 +96,12 @@ class SquanchBattleUnite(commands.Cog):
         await menus.menu(ctx, pages=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
     
     @commands.command()
-    async def error(self, ctx, *message : str):
+    async def error(self, ctx, *message):
+        stupid = ""
+        for thing in message:
+            stupid += thing + " "
         file = discord.File(os.path.join(os.path.dirname(__file__), "images/PakEDerm.png"), "PakEDerm.png")
-        embed = discord.Embed(title="Error", description=message, color=discord.Color.red())
+        embed = discord.Embed(title="Error", description=stupid, color=discord.Color.red())
         embed.set_thumbnail(url="attachment://PakEDerm.png")
 
         await ctx.send(embed=embed, file=file)
