@@ -93,7 +93,11 @@ class SquanchBattleUnite(commands.Cog):
             "▶️" : menus.next_page
         }
 
-        await menus.menu(ctx, pages=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
+        pages = self.create_character_pages(ctx, current_characters)
+        if len(pages) > 1:
+            await menus.menu(ctx, pages=pages, controls=CHAR_DICT)
+        else:
+            await ctx.send(embed=pages[0])
     
     async def error(self, ctx, message):
         file = discord.File(os.path.join(os.path.dirname(__file__), "images/PakEDerm.png"), "PakEDerm.png")
