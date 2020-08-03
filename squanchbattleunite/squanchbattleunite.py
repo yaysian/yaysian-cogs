@@ -96,7 +96,7 @@ class SquanchBattleUnite(commands.Cog):
         await menus.menu(ctx, pages=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
     
     @commands.command()
-    async def error_message(self, ctx, message):
+    async def error(self, ctx, message):
         file = discord.File(os.path.join(os.path.dirname(__file__), "images/PakEDerm.png"), "PakEDerm.png")
         embed = discord.Embed(title="Error", value=message)
         embed.set_thumbnail(url="attachment://PakEDerm.png")
