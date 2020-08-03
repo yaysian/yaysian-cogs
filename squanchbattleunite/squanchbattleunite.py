@@ -95,14 +95,11 @@ class SquanchBattleUnite(commands.Cog):
 
         await menus.menu(ctx, pages=self.create_character_pages(ctx, current_characters), controls=CHAR_DICT)
     
-    @commands.command()
-    async def error(self, ctx, *message):
-        stupid = ""
-        for thing in message:
-            stupid += thing + " "
+    async def error(self, ctx, message):
         file = discord.File(os.path.join(os.path.dirname(__file__), "images/PakEDerm.png"), "PakEDerm.png")
-        embed = discord.Embed(title="Error", description=stupid, color=discord.Color.red())
+        embed = discord.Embed(title="Error", description=message, color=discord.Color.red())
         embed.set_thumbnail(url="attachment://PakEDerm.png")
+        discord.set_footer()
 
         await ctx.send(embed=embed, file=file)
 
@@ -145,7 +142,7 @@ class SquanchBattleUnite(commands.Cog):
                 page_num += 1
                 char_num = 1
         if char_num != 1:
-            empty_spaces = char_num % 3
+            empty_spaces = char_num-1 % 3
             for x in range(empty_spaces):
                 embed.add_field(name="⠀", value="⠀")
             pages.append(copy.deepcopy(embed))
