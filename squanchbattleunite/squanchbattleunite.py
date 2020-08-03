@@ -132,6 +132,8 @@ class SquanchBattleUnite(commands.Cog):
                 embed.clear_fields()
                 page_num += 1
                 char_num = 1
+        if char_num != 1:
+            pages.append(copy.deepcopy(embed))
         return pages
 
             
