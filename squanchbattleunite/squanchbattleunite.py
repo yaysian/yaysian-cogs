@@ -127,7 +127,7 @@ class SquanchBattleUnite(commands.Cog):
             char_info = self.get_character_info(character)
             embed.add_field(name="{}. {}".format(char_num+(page_num*15), char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
             char_num += 1
-            if char_num >= 15:
+            if char_num >= 16:
                 pages.append(copy.deepcopy(embed))
                 embed.clear_fields()
                 page_num += 1
