@@ -6,6 +6,7 @@ import os
 import random
 import discord
 import ast
+import copy
 
 from redbot.core.bot import Red
 from redbot.core.utils import menus
@@ -127,7 +128,7 @@ class SquanchBattleUnite(commands.Cog):
             embed.add_field(name="{}. {}".format(char_num+(page_num*15), char_info["name"]), value="{} {}".format(ELEMENT_DICT[char_info["element"]], RARITY_DICT[char_info["rarity"]]))
             char_num += 1
             if char_num >= 15:
-                pages.append(embed)
+                pages.append(copy.copy(embed))
                 embed.clear_fields()
                 page_num += 1
                 char_num = 1
