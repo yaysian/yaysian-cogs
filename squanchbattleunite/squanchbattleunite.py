@@ -136,7 +136,7 @@ class SquanchBattleUnite(commands.Cog):
             pages.append(copy.deepcopy(embed))
         page_num = 1
         for page in pages:
-            page.set_footer("Page {} of {}".format(page_num, len(pages)))
+            page.set_footer(text="Page {} of {}".format(page_num, len(pages)))
         return pages
 
             
