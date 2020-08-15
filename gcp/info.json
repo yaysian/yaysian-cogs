@@ -1,0 +1,7 @@
+{
+    "author": ["Yaysian (Yaysian#6499)"],
+    "install_msg": "Installing Google Cloud Platform commands.",
+    "name": "Google Cloud Platform",
+    "description": "Commands to stop/start a Google Cloud Platform Compute instance.",
+    "requirements": ["google-api-python-client","oauth2client"]
+}
