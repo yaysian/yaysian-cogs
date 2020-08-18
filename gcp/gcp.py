@@ -30,7 +30,14 @@ class GCP(commands.Cog):
     @gcp.command()
     async def set(self, ctx, property : str, value: str):
         try:
-            await self.config.guild(ctx.guild)[property].set(value)
+            if value == "zone":
+                await self.config.guild(ctx.guild).zone.set(value)
+            elif value == "project":
+                await self.config.guild(ctx.guild).project.set(value)
+            elif value == "instance":
+                await self.config.guild(ctx.guild).instance.set(value)
+            else:
+                raise ValueError("Incorrect propery name.")
             await self.message(ctx, "Success", "Properly set the property.")
         except Exception as e:
             print(e)
