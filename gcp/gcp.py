@@ -30,24 +30,33 @@ class GCP(commands.Cog):
     @gcp.command()
     async def set(self, ctx, property : str, value: str):
         try:
-            if property == "zone":
-                await self.config.guild(ctx.guild).zone.set(value)
-            elif property == "project":
+            if property == "project":
                 await self.config.guild(ctx.guild).project.set(value)
+            elif property == "zone":
+                await self.config.guild(ctx.guild).zone.set(value)
             elif property == "instance":
                 await self.config.guild(ctx.guild).instance.set(value)
             else:
                 raise ValueError("Incorrect propery name.")
-            await self.message(ctx, "Success", "Properly set the property.")
+            await self.message(ctx, "Success", "Properly set {} as {}}.".format(property, value))
         except Exception as e:
             print(e)
             await self.error(ctx, "Could not properly set the property.")
+    
+    @gcp.command()
+    async def vars(self, ctx):
+        project = await self.config.guild(ctx.guild).project()
+        zone = await self.config.guild(ctx.guild).zone()
+        instance = await self.config.guild(ctx.guild).instance()
+        description = "Project: {}\nZone: {}\nInstance: {}".format(project, zone, instance)
+
+        await self.message(ctx, "Google Cloud Platform Variables", description)
 
     @gcp.command()
     async def start(self, ctx):
-        project = await self.config.guilt(ctx.guild).project()
-        zone = await self.config.guilt(ctx.guild).zone()
-        instance = await self.config.guilt(ctx.guild).instance()
+        project = await self.config.guild(ctx.guild).project()
+        zone = await self.config.guild(ctx.guild).zone()
+        instance = await self.config.guild(ctx.guild).instance()
         try:
             request = self.service.instances().start(project=project, zone=zone, instance=instance)
             response = request.execute()
