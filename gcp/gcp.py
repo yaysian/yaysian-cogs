@@ -32,7 +32,8 @@ class GCP(commands.Cog):
         try:
             await self.config.guild(ctx.guild)[property].set(value)
             await self.message(ctx, "Success", "Properly set the property.")
-        except:
+        except Exception,e:
+            print(e)
             await self.error(ctx, "Could not properly set the property.")
 
     @gcp.command()
