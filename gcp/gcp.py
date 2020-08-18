@@ -38,7 +38,7 @@ class GCP(commands.Cog):
                 await self.config.guild(ctx.guild).instance.set(value)
             else:
                 raise ValueError("Incorrect propery name.")
-            await self.message(ctx, "Success", "Properly set {} as {}}.".format(property, value))
+            await self.message(ctx, "Success", "Properly set {} as {}.".format(property, value))
         except Exception as e:
             print(e)
             await self.error(ctx, "Could not properly set the property.")
