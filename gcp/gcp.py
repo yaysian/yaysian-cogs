@@ -67,6 +67,22 @@ class GCP(commands.Cog):
                 await self.error(ctx, "Received no response from Google Cloud Platform API.")
         except:
             await self.error(ctx, "Could not properly start up GCP Compute Instance.")
+   
+    @gcp.command()
+    async def stop(self, ctx):
+        project = await self.config.guild(ctx.guild).project()
+        zone = await self.config.guild(ctx.guild).zone()
+        instance = await self.config.guild(ctx.guild).instance()
+        try:
+            request = self.service.instances().stop(project=project, zone=zone, instance=instance)
+            response = request.execute()
+            file = discord.File(os.path.join(os.path.dirname(__file__), "crumb.jpg"), "crumb.jpg")
+            if response:
+                await self.message(ctx, "Success", "{} Your crumb of cloud has been successfully taken away.".format(ctx.author.mention), "", file, "crumb.jpg")
+            else:
+                await self.error(ctx, "Received no response from Google Cloud Platform API.")
+        except:
+            await self.error(ctx, "Could not properly stop GCP Compute Instance.")
 
     async def message(self, ctx, title, message, footer="", file=None, file_name=""):
         embed = discord.Embed(title=title, description=message, color=ctx.me.colour)
