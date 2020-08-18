@@ -22,7 +22,12 @@ class GCP(commands.Cog):
         }
         self.config.register_guild(**default_guild)
 
-    @commands.command()
+    @commands.group()
+    async def gcp(ctx):
+        if ctx.invoked_subcommand is None:
+            await self.error("Invalid GCP command passed...")
+
+    @gcp.command()
     async def set(self, ctx, property : str, value: str):
         try:
             await self.config.guild(ctx.guild)[property].set(value)
@@ -30,7 +35,7 @@ class GCP(commands.Cog):
         except:
             await self.error(ctx, "Could not properly set the property.")
 
-    @commands.command()
+    @gcp.command()
     async def start(self, ctx):
         project = await self.config.guilt(ctx.guild).project()
         zone = await self.config.guilt(ctx.guild).zone()
