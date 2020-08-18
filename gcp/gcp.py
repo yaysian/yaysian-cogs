@@ -23,9 +23,9 @@ class GCP(commands.Cog):
         self.config.register_guild(**default_guild)
 
     @commands.group()
-    async def gcp(ctx):
+    async def gcp(self, ctx):
         if ctx.invoked_subcommand is None:
-            await self.error("Invalid GCP command passed...")
+            await self.error(ctx, "Invalid GCP command passed...")
 
     @gcp.command()
     async def set(self, ctx, property : str, value: str):
