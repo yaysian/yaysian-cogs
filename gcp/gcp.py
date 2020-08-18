@@ -62,7 +62,7 @@ class GCP(commands.Cog):
             response = request.execute()
             file = discord.File(os.path.join(os.path.dirname(__file__), "crumb.jpg"), "crumb.jpg")
             if response:
-                await self.message(ctx, "Success", "{}, here is your crumb of cloud. Please allow some time for MHIOCloud to appear on Parsec.".format(ctx.author.mention), "", file, "crumb.jpg")
+                await self.message(ctx, "Success", "{} Here is your crumb of cloud. Please allow some time for MHIOCloud to appear on Parsec.".format(ctx.author.mention), "", file, "crumb.jpg")
             else:
                 await self.error(ctx, "Received no response from Google Cloud Platform API.")
         except:
