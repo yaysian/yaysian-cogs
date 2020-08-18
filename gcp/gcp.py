@@ -60,7 +60,7 @@ class GCP(commands.Cog):
             await self.error(ctx, "Could not properly start up GCP Compute Instance.")
 
     async def message(self, ctx, title, message, footer="", file=None, file_name=""):
-        embed = discord.Embed(title=title, description=message, color=self.get_bot_color(ctx))
+        embed = discord.Embed(title=title, description=message, color=ctx.me.colour)
         embed.set_footer(text=footer)
 
         if file is None:
