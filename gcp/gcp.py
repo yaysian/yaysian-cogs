@@ -63,7 +63,7 @@ class GCP(commands.Cog):
         embed = discord.Embed(title=title, description=message, color=ctx.me.colour)
         embed.set_footer(text=footer)
 
-        if file is None:
+        if file is not None:
             embed.set_thumbnail(url="attachment://{}".format(file_name))
             await ctx.send(embed=embed, file=file)
         else:
