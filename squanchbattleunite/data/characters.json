@@ -303,16 +303,16 @@
     },
     "43" : {
         "name" : "Larry (Using The Force)",
-        "rarity": 2,
-        "imagepath": "images/MH/LarryUsingTheForce.png",
+        "rarity": 3,
+        "imagepath": "images/MHI/LarryUsingTheForce.png",
         "imagename": "LarryUsingTheForce.png",
         "element": "bitch"
     },
     "44" : {
         "name" : "Sam (Riddle Me This, Dumbass",
-        "rarity": 1,
-        "imagepath": "images/MH/LarryUsingTheForce.png",
-        "imagename": "LarryUsingTheForce.png",
-        "element": "bitch"
+        "rarity": 3,
+        "imagepath": "images/MHI/SamRiddleMeThisDumbass.png",
+        "imagename": "SamRiddleMeThisDumbass.png",
+        "element": "fake"
     }
 }
