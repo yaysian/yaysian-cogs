@@ -142,7 +142,7 @@ class SquanchBattleUnite(commands.Cog):
             await self.error (ctx, "You need {} more {} Finnathese Stones to complete this Finna Pull.".format(needed_stones-current_stones, rarity.upper()))
 
     async def get_pull(self, ctx, rates=None):
-        summon_rarity = self.summon_rate(random.randint(1,100)) if rates is not None else self.summon_rate(random.randint(1,100), rates) 
+        summon_rarity = self.summon_rate(random.randint(1,100)) if rates is None else self.summon_rate(random.randint(1,100), rates) 
         summon_pool = []
         summon_character = {}
 
