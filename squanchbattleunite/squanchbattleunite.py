@@ -70,38 +70,9 @@ class SquanchBattleUnite(commands.Cog):
         self.config.register_user(**default_user)
 
     @commands.command()
-    async def pull(self, ctx):
+    async def pull(self, ctx, rates=None):
         """Pull"""
-        summon_rarity = self.summon_rate(random.randint(1,100))
-        summon_pool = []
-        summon_character = {}
-
-        if summon_rarity == 1:
-            summon_pool = self.get_character_pool(1)
-        elif summon_rarity == 2:
-            summon_pool = self.get_character_pool(2)
-        elif summon_rarity == 3:
-            summon_pool = self.get_character_pool(3)
-        elif summon_rarity == 4:
-            summon_pool = self.get_character_pool(4)
-
-        summon_character = random.choice(summon_pool)
-        message= ""
-        if await self.check_for_dupes(ctx, summon_character[0]) == True:
-            stones = await self.config.user(ctx.author).stones()
-            stones[RARITY_STONE_DICT[summon_character[1]["rarity"]]] += 1
-            await self.config.user(ctx.author).stones.set(stones)
-            message="{} You have already pulled this character. You have received 1{}!".format(ctx.author.mention, RARITY_STONE_EMOJI_DICT[summon_character[1]["rarity"]])
-        else:
-            async with self.config.user(ctx.author).characters() as characters:
-                characters.append(summon_character[0])
-            
-        file = discord.File(os.path.join(os.path.dirname(__file__), summon_character[1]["imagepath"]), summon_character[1]["imagename"])
-        embed = discord.Embed(title="{}".format(summon_character[1]["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character[1]["rarity"]], ELEMENT_DICT[summon_character[1]["element"]]),color=RARITY_COLOR_DICT[summon_character[1]["rarity"]])
-        embed.set_image(url="attachment://{}".format(summon_character[1]["imagename"]))
-        embed.set_footer(text="Pulled by {}".format(ctx.author.name), icon_url=ctx.author.avatar_url)
-        
-        await ctx.send(file=file, embed=embed,content=message)
+        await self.get_pull(ctx)
 
     @commands.command()
     async def chars(self, ctx):
@@ -138,10 +109,72 @@ class SquanchBattleUnite(commands.Cog):
                                                          RARITY_STONE_EMOJI_DICT[3], stones["mhi"], \
                                                          RARITY_STONE_EMOJI_DICT[4], stones["mhio"]   
                                                          )
-        await self.message(ctx, title, message)
+        await self.message(ctx, title, message, "You can spend these stones with .finna to trade up to higher guaranteed rarities.")
+
+    @commands.command()
+    async def finna(self, ctx, rarity: str):
+        rarity = rarity.lower()
+        stones = await self.config.user(ctx.author).stones()
+        needed_stones = 0
+        current_stones = 0
+
+        if rarity == "m":
+            needed_stones = 15
+        elif rarity == "mh":
+            needed_stones = 13
+        elif rarity == "mhi":
+            needed_stones = 10
+        elif rarity == "mhio":
+            needed_stones = 6
+        else:
+            await self.error(ctx, "You have provided an invalid rarity of Finnathese Stones.")
+
+        current_stones = stones[rarity]
+        if current_stones >= needed_stones:
+            if rarity == "m":
+                rates = [0, 19, 30]
+            elif rarity == "mh":
+                rates = [0, 0 , 30]
+            else:
+                rates = [0, 0, 0]
+            await self.get_pull(ctx, rates)
+        else:
+            await self.error (ctx, "You need {} more {} Finnathese Stones to complete this Finna Pull.".format(needed_stones-current_stones, rarity.upper()))
+
+    async def get_pull(self, ctx, rates=None)
+        summon_rarity = self.summon_rate(random.randint(1,100)) if rates is not None else self.summon_rate(random.randint(1,100), rates) 
+        summon_pool = []
+        summon_character = {}
+
+        if summon_rarity == 1:
+            summon_pool = self.get_character_pool(1)
+        elif summon_rarity == 2:
+            summon_pool = self.get_character_pool(2)
+        elif summon_rarity == 3:
+            summon_pool = self.get_character_pool(3)
+        elif summon_rarity == 4:
+            summon_pool = self.get_character_pool(4)
+
+        summon_character = random.choice(summon_pool)
+        message= ""
+        if await self.check_for_dupes(ctx, summon_character[0]) == True:
+            stones = await self.config.user(ctx.author).stones()
+            stones[RARITY_STONE_DICT[summon_character[1]["rarity"]]] += 1
+            await self.config.user(ctx.author).stones.set(stones)
+            message="{} You have already pulled this character. You have received 1{}!".format(ctx.author.mention, RARITY_STONE_EMOJI_DICT[summon_character[1]["rarity"]])
+        else:
+            async with self.config.user(ctx.author).characters() as characters:
+                characters.append(summon_character[0])
+            
+        file = discord.File(os.path.join(os.path.dirname(__file__), summon_character[1]["imagepath"]), summon_character[1]["imagename"])
+        embed = discord.Embed(title="{}".format(summon_character[1]["name"]), description="**Rarity: {} | Element: {}**".format(RARITY_DICT[summon_character[1]["rarity"]], ELEMENT_DICT[summon_character[1]["element"]]),color=RARITY_COLOR_DICT[summon_character[1]["rarity"]])
+        embed.set_image(url="attachment://{}".format(summon_character[1]["imagename"]))
+        embed.set_footer(text="Pulled by {}".format(ctx.author.name), icon_url=ctx.author.avatar_url)
+        
+        await ctx.send(file=file, embed=embed,content=message)
 
     async def message(self, ctx, title, message, footer=""):
-        embed = discord.Embed(title=title, description=message, color=self.get_bot_color(ctx))
+        embed = discord.Embed(title=title, description=message, color=ctx.me.colour)
         embed.set_footer(text=footer)
 
         await ctx.send(embed=embed)
@@ -154,19 +187,20 @@ class SquanchBattleUnite(commands.Cog):
 
         await ctx.send(embed=embed, file=file)
 
-    def summon_rate(self, num):
-        #3%
-        if num <= 3:
+    def summon_rate(self, num, rates=[3,19,30]):
+        #3% Default
+        if num <= rates[0]:
             return 4
-        #7%
-        elif num <= 10:
+        #7% Default
+        elif num <= rates[1]:
             return 3
-        #20%
-        elif num <= 30:
+        #20% Default
+        elif num <= rates[2]:
             return 2
-        #70%
+        #70% Default
         else:
             return 1
+
 
     def get_character_pool(self, num):
         character_pool = []
@@ -213,10 +247,6 @@ class SquanchBattleUnite(commands.Cog):
                 return True
             else:
                 return False
-                
-    def get_bot_color(self,ctx):
-        member = ctx.message.guild.get_member(self.bot.user.id)
-        return member.color
             
     
 
