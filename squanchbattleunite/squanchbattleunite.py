@@ -113,33 +113,34 @@ class SquanchBattleUnite(commands.Cog):
 
     @commands.command()
     async def finna(self, ctx, rarity: str):
-        rarity = rarity.lower()
-        stones = await self.config.user(ctx.author).stones()
-        needed_stones = 0
-        current_stones = 0
+        try:
+            rarity = rarity.lower()
+            stones = await self.config.user(ctx.author).stones()
+            needed_stones = 0
+            current_stones = 0
 
-        if rarity == "m":
-            needed_stones = 15
-        elif rarity == "mh":
-            needed_stones = 13
-        elif rarity == "mhi":
-            needed_stones = 10
-        elif rarity == "mhio":
-            needed_stones = 6
-        else:
-            await self.error(ctx, "You have provided an invalid rarity of Finnathese Stones.")
-
-        current_stones = stones[rarity]
-        if current_stones >= needed_stones:
             if rarity == "m":
-                rates = [0, 19, 30]
+                needed_stones = 15
             elif rarity == "mh":
-                rates = [0, 0 , 30]
+                needed_stones = 13
+            elif rarity == "mhi":
+                needed_stones = 10
+            elif rarity == "mhio":
+                needed_stones = 6
+
+            current_stones = stones[rarity]
+            if current_stones >= needed_stones:
+                if rarity == "m":
+                    rates = [3, 19, 100]
+                elif rarity == "mh":
+                    rates = [3, 100, -1]
+                else:
+                    rates = [100, -1, -1]
+                await self.get_pull(ctx, rates)
             else:
-                rates = [0, 0, 0]
-            await self.get_pull(ctx, rates)
-        else:
-            await self.error (ctx, "You need {} more {} Finnathese Stones to complete this Finna Pull.".format(needed_stones-current_stones, rarity.upper()))
+                await self.error (ctx, "You need {} more {} Finnathese Stones to complete this Finna Pull.".format(needed_stones-current_stones, rarity.upper()))
+        except KeyError:
+            await self.error(ctx, "You have provided an invalid rarity of Finnathese Stones.")
 
     async def get_pull(self, ctx, rates=None):
         summon_rarity = self.summon_rate(random.randint(1,100)) if rates is None else self.summon_rate(random.randint(1,100), rates) 
