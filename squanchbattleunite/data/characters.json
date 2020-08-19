@@ -258,5 +258,61 @@
         "imagepath": "images/M/KeithDawnOfTheFinalDay.png",
         "imagename": "KeithDawnOfTheFinalDay.png",
         "element": "platano"
+    },
+    "37" : {
+        "name" : "Ace (Forma De TV)",
+        "rarity": 1,
+        "imagepath": "images/M/AceFormaDeTV.png",
+        "imagename": "AceFormaDeTV.png",
+        "element": "platano"
+    },
+    "38" : {
+        "name" : "Jose (Found Dead In Miami)",
+        "rarity": 1,
+        "imagepath": "images/M/JoseFoundDeadInMiami.png",
+        "imagename": "JoseFoundDeadInMiami.png",
+        "element": "bitch"
+    },
+    "39" : {
+        "name" : "Rafy (Rafyvelo)",
+        "rarity": 1,
+        "imagepath": "images/M/RafyRafyvelo.png",
+        "imagename": "RafyRafyvelo.png",
+        "element": "beef"
+    },
+    "40" : {
+        "name" : "Rafy (Shakespeare)",
+        "rarity": 1,
+        "imagepath": "images/M/RafyShakespeare.png",
+        "imagename": "RafyShakespeare.png",
+        "element": "fake"
+    },
+    "41" : {
+        "name" : "Xavier (Winnin' Yeah Yeah)",
+        "rarity": 1,
+        "imagepath": "images/M/XavierWinninYeahYeah.png",
+        "imagename": "XavierWinninYeahYeah.png",
+        "element": "squanch"
+    },
+    "42" : {
+        "name" : "Ace (Vanilla Hulk)",
+        "rarity": 2,
+        "imagepath": "images/MH/AceVanillaHulk.png",
+        "imagename": "AceVanillaHulk.png",
+        "element": "gout"
+    },
+    "43" : {
+        "name" : "Larry (Using The Force)",
+        "rarity": 2,
+        "imagepath": "images/MH/LarryUsingTheForce.png",
+        "imagename": "LarryUsingTheForce.png",
+        "element": "bitch"
+    },
+    "44" : {
+        "name" : "Sam (Riddle Me This, Dumbass",
+        "rarity": 1,
+        "imagepath": "images/MH/LarryUsingTheForce.png",
+        "imagename": "LarryUsingTheForce.png",
+        "element": "bitch"
     }
 }
