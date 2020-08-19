@@ -34,6 +34,13 @@ RARITY_STONE_DICT = {
     4 : "mhio"
 }
 
+RARITY_STONE_NUM_DICT = {
+   "m" : 1,
+   "mh" : 2,
+   "mhi" : 3,
+   "mhio" : 4
+}
+
 RARITY_STONE_EMOJI_DICT ={
     1 : "<:goutm:739730447612903444>",
     2 : "<:goutmh:739735718745735169>",
@@ -136,9 +143,15 @@ class SquanchBattleUnite(commands.Cog):
                     rates = [3, 100, -1]
                 else:
                     rates = [100, -1, -1]
+
+                await self.message(ctx, "Success", "You have consumed {} {}. ({} left)".format(needed_stones, RARITY_STONE_EMOJI_DICT[RARITY_STONE_NUM_DICT[rarity]], current_stones-needed_stones))
+                
+                stones[rarity] -= needed_stones
+                await self.config.user(ctx.author).stones.set(stones)
+
                 await self.get_pull(ctx, rates)
             else:
-                await self.error (ctx, "You need {} more {} Finnathese Stones to complete this Finna Pull.".format(needed_stones-current_stones, rarity.upper()))
+                await self.error (ctx, "You need {} more {} Finnathese Stones to complete this Finna Pull.".format(needed_stones-current_stones, RARITY_STONE_EMOJI_DICT[RARITY_STONE_NUM_DICT[rarity]]))
         except KeyError:
             await self.error(ctx, "You have provided an invalid rarity of Finnathese Stones.")
 
