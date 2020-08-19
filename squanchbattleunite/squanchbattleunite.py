@@ -120,8 +120,8 @@ class SquanchBattleUnite(commands.Cog):
         await self.message(ctx, title, message, "You can spend these stones with .finna to trade up to higher guaranteed rarities.")
 
     @commands.command()
-    """Consume Finnathese Stones to guarantee a character of a higher rarity."""
     async def finna(self, ctx, rarity: str):
+        """Consume Finnathese Stones to guarantee a character of a higher rarity."""
         try:
             rarity = rarity.lower()
             stones = await self.config.user(ctx.author).stones()
