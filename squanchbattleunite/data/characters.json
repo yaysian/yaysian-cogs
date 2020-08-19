@@ -99,11 +99,11 @@
         "element": "squanch"
     },
     "14" : {
-        "name": "Dennis (Kekkei Genkai)",
-        "rarity": 2,
-        "imagepath": "images/MH/DennisKekkeiGenkai.png",
-        "imagename": "DennisKekkeiGenkai.png",
-        "element": "squanch"
+        "name": "Jose (Forma De Tofu Cat",
+        "rarity": 1,
+        "imagepath": "images/M/JoseFormaDeTofuCat.png",
+        "imagename": "JoseFormaDeTofuCat.png",
+        "element": "beef"
     },
     "15" : {
         "name": "Larry (Proud Papa)",
