@@ -78,12 +78,12 @@ class SquanchBattleUnite(commands.Cog):
 
     @commands.command()
     async def pull(self, ctx, rates=None):
-        """Pull"""
+        """Pull a character."""
         await self.get_pull(ctx)
 
     @commands.command()
     async def chars(self, ctx):
-        """Chars"""
+        """Displays a user's collection of characters."""
         try: 
             async with self.config.user(ctx.author).characters() as characters:
                 current_characters = characters
@@ -109,6 +109,7 @@ class SquanchBattleUnite(commands.Cog):
 
     @commands.command()
     async def stones(self, ctx):
+        """Displays a user's Finnathese Stones inventory."""
         stones = await self.config.user(ctx.author).stones()
         title = "{}'s Finnathese Stones".format(ctx.author.name)
         message = "{} {} | {} {} | {} {} | {} {}".format(RARITY_STONE_EMOJI_DICT[1], stones["m"], \
@@ -119,6 +120,7 @@ class SquanchBattleUnite(commands.Cog):
         await self.message(ctx, title, message, "You can spend these stones with .finna to trade up to higher guaranteed rarities.")
 
     @commands.command()
+    """Consume Finnathese Stones to guarantee a character of a higher rarity."""
     async def finna(self, ctx, rarity: str):
         try:
             rarity = rarity.lower()
@@ -144,7 +146,7 @@ class SquanchBattleUnite(commands.Cog):
                 else:
                     rates = [100, -1, -1]
 
-                await self.message(ctx, "Success", "You have consumed {} {}. ({} left)".format(needed_stones, RARITY_STONE_EMOJI_DICT[RARITY_STONE_NUM_DICT[rarity]], current_stones-needed_stones))
+                await self.message(ctx, "Success", "You have consumed {} {} ({} left)".format(needed_stones, RARITY_STONE_EMOJI_DICT[RARITY_STONE_NUM_DICT[rarity]], current_stones-needed_stones))
                 
                 stones[rarity] -= needed_stones
                 await self.config.user(ctx.author).stones.set(stones)
