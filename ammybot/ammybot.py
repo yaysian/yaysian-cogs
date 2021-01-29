@@ -11,6 +11,28 @@ clayton = ['On another note seriously has there ever been a game in the FGC blow
            'On a final note whats up with people coming into my videos trying to promote their videos, and then just showing off different variations of what I did and saying my videos are worse? Like dude, acting like I did a jump in, and you started with a medium, or switching one button around does not make your combo different or better. Or make you creative. Its crazy to think I have had to block so many people just because of combo videos on my page. Try to come up with your own stuff, try to actual build a foundation. Honestly speaking I am not creatively threatened right now if you can even use that word by anything anyone is putting out right now. So no one needs to try to promote their stuff as something new, and whats more try to promote your stuff in my comments and say my shit sucks when you are doing less than me and have never come up with anything but have a boner because you started a combo with less of a damage buffer but do other wise the exact same combo after watching my video... really?',
            'Anyway theres lots of shady FGC stories I could tell but point is, I like games more than I like the community. And I dont even like games that much anymore. So thats why I try to associate with people in it very rarely.  You know theres lots of people that all they talk about is how much they hate this game or they hate this and that, and then yet I still hear about them going to every tournament just to lose, just to complain. Well when I said I was gonna quit. I did. Didnt want to be one of those people that ended up hating something but kept coming back. So I decided I can randomly play video games by myself online, or randomly at a friends and I dont have to be by the people that make it unfun. And im fine with that.',
            ]
+ike = [
+    'https://cdn.discordapp.com/attachments/271499861696839680/565696206215577630/20190226_144209.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565696359521583110/IMG_-opi21n.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565696521710993408/20190410_163856.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565696587138072597/20190313_205003.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565696640657260546/20190306_170740.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565696674887106570/20190304_163403.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565696762707443712/20190122_085749.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565697027686793217/20190326_112959.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565697224483536906/20190305_161146.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565698026858086430/received_406899413389393.jpeg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565698125864370196/20190226_152526.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565698170214940673/received_388315081976788.jpeg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565698236765962280/20190111_130452.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565698351870246932/received_229959021054692.jpeg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565698446368178176/20181122_184146.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565699082866393109/IMG_8939.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565699180413321237/45276212_3415971889339_6735429131619532800_o.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565699268757815296/20180924_115118.jpg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/565699765682044938/received_1054892028022108.jpeg',
+    'https://cdn.discordapp.com/attachments/271499861696839680/743133328659578961/ikecar.png',
+]
 
 
 class AmmyBot(commands.Cog):
@@ -218,3 +240,8 @@ class AmmyBot(commands.Cog):
     async def gs(self, ctx):
         """That is some good shit."""
         await ctx.send(':ok_hand: :eyes: :ok_hand: :eyes: :ok_hand: :eyes: :ok_hand: :eyes: :ok_hand: :eyes: good shit go౦ԁ sHit :ok_hand: thats :heavy_check_mark: some good :ok_hand: :ok_hand: shit right :ok_hand: :ok_hand: there :ok_hand: :ok_hand: :ok_hand: right :heavy_check_mark: there :heavy_check_mark: :heavy_check_mark: if i do ƽaү so my self :100: i say so :100: thats what im talking about right there right there (chorus: ʳᶦᵍʰᵗ ᵗʰᵉʳᵉ) mMMMMᎷМ :100: :ok_hand: :ok_hand: :ok_hand: НO0ОଠOOOOOОଠଠOoooᵒᵒᵒᵒᵒᵒᵒᵒᵒ :ok_hand: :ok_hand: :ok_hand: :ok_hand: :100: :ok_hand: :eyes: :eyes: :eyes: :ok_hand: :ok_hand: Good shit')
+
+    @commands.command(aliases=["ike!"])
+    async def ike(self, ctx):
+        """"""
+        await ctx.send(random.choice(ike))
