@@ -37,179 +37,179 @@ class AmmyBot(commands.Cog):
             if choice:
                 choiceList.append(choice)
             if len(choiceList) > 1:
-                await self.bot.say(random.choice(choiceList))
+                await self.message(ctx, random.choice(choiceList))
             else:
-                await self.bot.say('```\nUsage: !choose something or something else or another thing ...\n```')
+                await self.message(ctx, '```\nUsage: !choose something or something else or another thing ...\n```')
         else:
-            await self.bot.say('```\nUsage: !choose something or something else or another thing ...\n```')
+            await self.message(ctx, '```\nUsage: !choose something or something else or another thing ...\n```')
 
     @commands.command(name='rns')
     async def rns(self, ctx):
         """"""
-        await self.bot.say(':rotating_light::rotating_light::rotating_light: WEE WOO WEE WOO WEE WOO :rotating_light::rotating_light::rotating_light: YOU ARE BEING DETAINED :cop::skin-tone-1::cop::skin-tone-1::cop::skin-tone-1: FOR BEING AWAKE DURING REAL NIGGA HOURS :clock1::ok_hand::skin-tone-1::smirk: PLEASE SHOW ME YOUR REAL NIGGA REGISTRATION :pray::skin-tone-1::pencil: BY SMASHING THE MOTHAFUCCIN LIKE BUTTON :speak_no_evil::raised_hands::skin-tone-2::fire::fire: REAL NIGGAS ONLY!! IT DONT MATTER IF YOU UP TRAPPING OR WHAT :sweat_drops::sweat_drops::weary::weary::100::100::100:')
+        await self.message(ctx, ':rotating_light::rotating_light::rotating_light: WEE WOO WEE WOO WEE WOO :rotating_light::rotating_light::rotating_light: YOU ARE BEING DETAINED :cop::skin-tone-1::cop::skin-tone-1::cop::skin-tone-1: FOR BEING AWAKE DURING REAL NIGGA HOURS :clock1::ok_hand::skin-tone-1::smirk: PLEASE SHOW ME YOUR REAL NIGGA REGISTRATION :pray::skin-tone-1::pencil: BY SMASHING THE MOTHAFUCCIN LIKE BUTTON :speak_no_evil::raised_hands::skin-tone-2::fire::fire: REAL NIGGAS ONLY!! IT DONT MATTER IF YOU UP TRAPPING OR WHAT :sweat_drops::sweat_drops::weary::weary::100::100::100:')
 
     @commands.command(name='bully')
     async def bully(self, ctx):
         """"""
-        await self.bot.say('https://cdn.discordapp.com/attachments/85176687381196800/179404570143883265/6-4aQ-Qp_400x400.png')
+        await self.message(ctx, 'https://cdn.discordapp.com/attachments/85176687381196800/179404570143883265/6-4aQ-Qp_400x400.png')
 
     @commands.command(name='tech')
     async def tech(self, ctx):
         """"""
-        await self.bot.say('http://tinyimg.io/i/bgxg1vI.png')
+        await self.message(ctx, 'http://tinyimg.io/i/bgxg1vI.png')
 
     @commands.command(name='ty4c')
     async def ty4c(self, ctx):
         """"""
-        await self.bot.say('Thank you for contributing and not going off discussion.')
+        await self.message(ctx, 'Thank you for contributing and not going off discussion.')
 
     @commands.command(name='destroyed')
     async def destroyed(self, ctx):
         """"""
-        await self.bot.say('http://i.imgur.com/BW4wOGK.png')
+        await self.message(ctx, 'http://i.imgur.com/BW4wOGK.png')
 
     @commands.command(name='pupper')
     async def pupper(self, ctx):
         """"""
-        await self.bot.say('http://i.imgur.com/hK96rUd.jpg')
+        await self.message(ctx, 'http://i.imgur.com/hK96rUd.jpg')
 
     @commands.command(name='doggo')
     async def doggo(self, ctx):
         """"""
-        await self.bot.say('http://i.imgur.com/7cEXbxd.jpg')
+        await self.message(ctx, 'http://i.imgur.com/7cEXbxd.jpg')
 
     @commands.command(name='smooch')
     async def smooch(self, ctx):
         """"""
-        await self.bot.say('http://i.imgur.com/U59d9.gif')
+        await self.message(ctx, 'http://i.imgur.com/U59d9.gif')
 
     @commands.command(name='tilt')
     async def tilt(self, ctx):
         """"""
-        await self.bot.say('http://i.imgur.com/sv8KQZA.png')
+        await self.message(ctx, 'http://i.imgur.com/sv8KQZA.png')
 
     @commands.command(name='gaijin')
     async def gaijin(self, ctx):
         """"""
-        await self.bot.say('http://i.imgur.com/6BvDG2b.gif')
+        await self.message(ctx, 'http://i.imgur.com/6BvDG2b.gif')
 
     @commands.command(name='toptier')
     async def toptier(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/0poiSAQ.jpg")
+        await self.message(ctx, "http://i.imgur.com/0poiSAQ.jpg")
 
     @commands.command(name='doomgene')
     async def doomgene(self, ctx):
         """"""
         result = "Got a bunch of people that got animosity against DOOM cuz their S BUTTON is bigger than em. These are the guys thats jealous because they don't carry, they don't possess ACTUAL DEFENSE, they don't possess that SETPLAY. Keep being jealous. Keep wondering your wife is asking for proper defense, keep wondering why your girlfriend asks for mashed back throws and wishing to be stomped on by this Latverian ruler with huge metal feet that'll smother them until the point where they can feel each and every last spectacle of their wakeup options getting raw foot dived or hit confirmed into the maziodyne loop that spews out! Keep saying fraud, keep saying scrub. COME ON. You strangefags. You love it. You love this shit, I'LL BE THAT PLAYER. I'LL BE THAT PLAYER, yep with that hard kick pressure. Enjoy it, have your woman take this full TAC infinite, she's imagining huge metal shock gloves, why do you think your bitches play support characters? Because you don't possess that PROPER NEUTRAL. That's why you're upset, no Neutral= Anger. You're upset with this setplay, these rhino Full Schedule sequences. That's why you use press buttons every wakeup. I get it!"
-        await self.bot.say(result)
+        await self.message(ctx, result)
 
     @commands.command(name='rayx2', aliases=['ray', 'rayray'])
     async def rayx2(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/0egQnmI.jpg")
+        await self.message(ctx, "http://i.imgur.com/0egQnmI.jpg")
 
     @commands.command(name='book')
     async def book(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/LKf6epG.png")
+        await self.message(ctx, "http://i.imgur.com/LKf6epG.png")
 
     @commands.command(name='joespecial')
     async def joespecial(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/kgSlJ2E.png")
+        await self.message(ctx, "http://i.imgur.com/kgSlJ2E.png")
 
     @commands.command(name='school')
     async def school(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/feUA1mN.png")
+        await self.message(ctx, "http://i.imgur.com/feUA1mN.png")
 
     @commands.command(name='stfu')
     async def stfu(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/q8BrtiN.jpg")
+        await self.message(ctx, "http://i.imgur.com/q8BrtiN.jpg")
 
     @commands.command(name='nice')
     async def nice(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/CYvLTVJ.jpg")
+        await self.message(ctx, "http://i.imgur.com/CYvLTVJ.jpg")
 
     @commands.command(name='beaned')
     async def beaned(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/NkD56cv.jpg")
+        await self.message(ctx, "http://i.imgur.com/NkD56cv.jpg")
 
     @commands.command(name='free')
     async def free(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/g7dFBcs.jpg")
+        await self.message(ctx, "http://i.imgur.com/g7dFBcs.jpg")
 
     @commands.command(name='blockin')
     async def blockin(self, ctx):
         """"""
-        await self.bot.say("https://pbs.twimg.com/media/CuwROasVYAAtuig.jpg")
+        await self.message(ctx, "https://pbs.twimg.com/media/CuwROasVYAAtuig.jpg")
 
     @commands.command(name='boat')
     async def boat(self, ctx):
         """"""
-        await self.bot.say("https://cdn.discordapp.com/attachments/85176687381196800/234006823781269506/sfv.gif")
+        await self.message(ctx, "https://cdn.discordapp.com/attachments/85176687381196800/234006823781269506/sfv.gif")
 
     @commands.command(name='shitpost')
     async def honor(self, ctx):
         """"""
-        await self.bot.say("Apparently. When I play a fighting game. Like the Free Tekken game for PS3, I feel like… I am filled with honor. I knock a guy down to the ground, and I back away so they can get back up. Like the honorable martial arts fighter would. But… I guess no one in the fucking world understands this concept since everyone from 7 ranks above me or first starting the game all do the same cheap tactics like spam the invincible attack or spam you with attacks that never give you a chance to do anything.\n\nWith that I say… Where is the honor in a martial arts fighting game, Like tekken (sorta) or Virtual Fighter. When in a martial arts fight, You bow to your opponet as a sign of honor. since you cant do that in a game, the best you can do is crouch when the match starts, only leading to about 50+ hits to the face. Fuck everyone who plays fighting games like its a competition. Fighting games should be played with a sense of respect.\n\nI have no respect for anyone I fight with, but I will still play the game by my code of honor.")
+        await self.message(ctx, "Apparently. When I play a fighting game. Like the Free Tekken game for PS3, I feel like… I am filled with honor. I knock a guy down to the ground, and I back away so they can get back up. Like the honorable martial arts fighter would. But… I guess no one in the fucking world understands this concept since everyone from 7 ranks above me or first starting the game all do the same cheap tactics like spam the invincible attack or spam you with attacks that never give you a chance to do anything.\n\nWith that I say… Where is the honor in a martial arts fighting game, Like tekken (sorta) or Virtual Fighter. When in a martial arts fight, You bow to your opponet as a sign of honor. since you cant do that in a game, the best you can do is crouch when the match starts, only leading to about 50+ hits to the face. Fuck everyone who plays fighting games like its a competition. Fighting games should be played with a sense of respect.\n\nI have no respect for anyone I fight with, but I will still play the game by my code of honor.")
 
     @commands.command(name='pad')
     async def pad(self, ctx):
         """"""
-        await self.bot.say("https://cdn.discordapp.com/attachments/85176687381196800/257666440180662274/post_post.jpg")
+        await self.message(ctx, "https://cdn.discordapp.com/attachments/85176687381196800/257666440180662274/post_post.jpg")
 
     @commands.command(name='fray')
     async def fray(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/moKRH9U.gif")
+        await self.message(ctx, "http://i.imgur.com/moKRH9U.gif")
 
     @commands.command(name='dab')
     async def dab(self, ctx):
         """"""
-        await self.bot.say("https://cdn.discordapp.com/attachments/85176687381196800/268051894373580801/Betty.png")
+        await self.message(ctx, "https://cdn.discordapp.com/attachments/85176687381196800/268051894373580801/Betty.png")
 
     @commands.command(name='wack')
     async def wack(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/dOOyIFb.png")
+        await self.message(ctx, "http://i.imgur.com/dOOyIFb.png")
 
     @commands.command(name='midwack')
     async def midwack(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/Sh3Tjds.jpg")
+        await self.message(ctx, "http://i.imgur.com/Sh3Tjds.jpg")
 
     @commands.command(name='block')
     async def block(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/1Zs854D.png")
+        await self.message(ctx, "http://i.imgur.com/1Zs854D.png")
 
     @commands.command(name='work')
     async def work(self, ctx):
         """"""
-        await self.bot.say("http://i.imgur.com/taHvVio.png")
+        await self.message(ctx, "http://i.imgur.com/taHvVio.png")
 
     @commands.command(name='banlat')
     async def banlat(self, ctx):
         """"""
-        await self.bot.say("http://i.giphy.com/6FeRQGbt8Fb2.gif")
+        await self.message(ctx, "http://i.giphy.com/6FeRQGbt8Fb2.gif")
 
     @commands.command(name='xrd')
     async def xrd(self, ctx):
         """"""
-        await self.bot.say("https://cdn.discordapp.com/attachments/85176687381196800/281499092629323777/lazy_11.jpg")
+        await self.message(ctx, "https://cdn.discordapp.com/attachments/85176687381196800/281499092629323777/lazy_11.jpg")
 
     @commands.command(pass_context=True, hidden=True)
     async def nut(self, ctx):
         if ctx.message.channel.id == '271499861696839680':
-            await self.bot.say("https://i.imgur.com/8cRz5Bh.png")
+            await self.message(ctx, "https://i.imgur.com/8cRz5Bh.png")
 
     @commands.command(name='clayton')
     async def clayton(self, ctx):
         """"""
-        await self.bot.say(random.choice(clayton))
+        await self.message(ctx, random.choice(clayton))
