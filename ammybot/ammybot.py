@@ -4,6 +4,10 @@ from redbot.core import Config
 import random
 import discord
 import os
+import traceback
+
+from redbot.core.utils.predicates import ReactionPredicate
+from redbot.core.utils.menus import start_adding_reactions
 
 clayton = ['On another note seriously has there ever been a game in the FGC blown up tech/combo wise more so than I did with DBFZ? All the most hype combos, craziest stuff in the game is just people retweeting my stuff, or trying to do a different variation of something I did. Goku double supers, sparking loops, gohans bomb loops, cells hop, looping trunks auto combos. Go on and on and on... all that stuff I posted first, hell a lot of it MONTHS ago on srk when people were saying this game is to basic has no combos... Seriously, I say that with no ego.. or well a healthy ego.. but all people are doing any time I see anything for this game right now, is stuff I did, or just assists stuff. Seriously that is insane. Bandai should have paid me for this.',
            'Main ideas that hopefully(...*crickets chirp*.. ya thats not happening)should be grasped from this. Assuming of course that we want to be able to be at a height where we can double super. So this can potentially put us in a conundrum if obviously we have to assume not all combos start from the ground (whether other people posting videos only want to do combos that start from teh ground or not.. rolls eyes  )for say something like the double down ki blast links. Which easily let you get a good height for the double super...So generally speaking better to go for one. Also of course although ki to kamehameha does more than down hard to hurricane kick, realistically in longer combos its not possible.',
@@ -33,6 +37,11 @@ ike = [
     'https://cdn.discordapp.com/attachments/271499861696839680/565699765682044938/received_1054892028022108.jpeg',
     'https://cdn.discordapp.com/attachments/271499861696839680/743133328659578961/ikecar.png',
 ]
+rps_emojis = [
+    ":reflector:804559738096320542",
+    ":rosary:804559698358566922",
+    ":glaive:804559799491887104"
+]
 
 
 class AmmyBot(commands.Cog):
@@ -41,6 +50,68 @@ class AmmyBot(commands.Cog):
     def __init__(self, bot: Red):
         super().__init__()
         self.bot = bot
+        self.config = Config.get_conf(self, identifier=1234567890)
+        default_user = {
+            "rps": {
+                "message": 0,
+                "active": False,
+                "win": 0,
+                "loss": 0,
+                "draw": 0
+            }
+        }
+        self.config.register_user(**default_user)
+
+    @commands.Cog.listener()
+    async def on_reaction_add(self, reaction, user):
+        message = reaction.message
+        if user.bot:
+            return
+        try:
+            rps = await self.config.user(user).rps()
+            if rps["active"] == True and rps["message"] == message.id:
+                await self.rps_logic(reaction, user)
+        except:
+            raise
+
+    async def rps_logic(self, reaction, user):
+        message = reaction.message
+        channel = message.channel
+        rock = rps_emojis[0]
+        paper = rps_emojis[1]
+        scissors = rps_emojis[2]
+
+        draw_game = "Draw Game!"
+        player_wins = "{} wins!".format(user.name)
+        cpu_wins = "{} lost!".format(user.name)
+
+        gamestates = {(rock, rock): draw_game,
+                      (paper, paper): draw_game,
+                      (scissors, scissors): draw_game,
+                      (rock, paper): cpu_wins,
+                      (rock, scissors): player_wins,
+                      (paper, scissors): cpu_wins,
+                      (paper, rock): player_wins,
+                      (scissors, rock): cpu_wins,
+                      (scissors, paper): player_wins}
+
+        rps = await self.config.user(user).rps()
+
+        choice = random.choice(list(rps_emojis))
+        gamestate = gamestates[(str(reaction)[1:-1], choice)]
+
+        if gamestate == draw_game:
+            rps["draw"] += 1
+        elif gamestate == player_wins:
+            rps["win"] += 1
+        elif gamestate == cpu_wins:
+            rps["loss"] += 1
+        rps["message"] = 0
+        rps["active"] = False
+
+        await self.config.user(user).rps.set(rps)
+        await channel.send("{} threw {}!\nAmmyBot threw {}!\n**{}**\n{} currently has {} wins, {} losses, and {} draws.".format(user.name, reaction, "<" + choice + ">", gamestate, user.name, rps["win"], rps["loss"], rps["draw"]))
+        await message.delete()
 
     @commands.command()
     async def choose(self, ctx, *choices: str):
@@ -250,3 +321,17 @@ class AmmyBot(commands.Cog):
     async def matt(self, ctx):
         """"""
         await ctx.send("https://cdn.discordapp.com/attachments/271499861696839680/798418117998805003/Ela7VDfXYAIaKKA.jpg")
+
+    @commands.command()
+    async def rps(self, ctx):
+        """"""
+        rps = await self.config.user(ctx.author).rps()
+        embed = discord.Embed(
+            title="Which one will you choose?", description="Reflector, Rosary, or Glaive?", color=ctx.me.colour)
+        embed.set_thumbnail(url=ctx.me.avatar_url)
+        embed.set_footer(text="Reflector < Rosary < Glaive < Reflector")
+        message = await ctx.send(embed=embed)
+        start_adding_reactions(message, rps_emojis)
+        rps["message"] = message.id
+        rps["active"] = True
+        await self.config.user(ctx.author).rps.set(rps)
