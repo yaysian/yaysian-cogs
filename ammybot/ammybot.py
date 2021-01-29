@@ -245,3 +245,8 @@ class AmmyBot(commands.Cog):
     async def ike(self, ctx):
         """"""
         await ctx.send(random.choice(ike))
+
+    @commands.command()
+    async def matt(self, ctx):
+        """"""
+        await ctx.send("https://cdn.discordapp.com/attachments/271499861696839680/798418117998805003/Ela7VDfXYAIaKKA.jpg")
