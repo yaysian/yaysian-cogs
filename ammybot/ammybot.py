@@ -21,7 +21,7 @@ class AmmyBot(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def choose(self, *choices: str):
+    async def choose(self, ctx, *choices: str):
         """Chooses between multiple choices separated by 'or'. Ex.) !choose this or that or maybe this"""
         string = list(choices)
         choiceList = []
@@ -204,7 +204,7 @@ class AmmyBot(commands.Cog):
         """"""
         await ctx.send("https://cdn.discordapp.com/attachments/85176687381196800/281499092629323777/lazy_11.jpg")
 
-    @commands.command(pass_context=True, hidden=True)
+    @commands.command(hidden=True)
     async def nut(self, ctx):
         if ctx.message.channel.id == '271499861696839680':
             await ctx.send("https://i.imgur.com/8cRz5Bh.png")
