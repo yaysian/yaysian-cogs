@@ -149,7 +149,7 @@ class AmmyBot(commands.Cog):
     @commands.command(name='tech')
     async def tech(self, ctx):
         """"""
-        await ctx.send('http://tinyimg.io/i/bgxg1vI.png')
+        await ctx.send('https://cdn.discordapp.com/attachments/271499861696839680/804956615019200522/EUI4UXDWoAEyIiV.png')
 
     @commands.command(name='ty4c')
     async def ty4c(self, ctx):
