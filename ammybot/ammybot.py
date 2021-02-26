@@ -37,6 +37,15 @@ ike = [
     'https://cdn.discordapp.com/attachments/271499861696839680/565699765682044938/received_1054892028022108.jpeg',
     'https://cdn.discordapp.com/attachments/271499861696839680/743133328659578961/ikecar.png',
 ]
+jax = [
+    'https://media.discordapp.net/attachments/271499861696839680/804752869420826725/EqG50b6XcAE-uIl.png',
+    'https://media.discordapp.net/attachments/271499861696839680/804753274132496394/image0.jpg',
+    'https://media.discordapp.net/attachments/271499861696839680/804753394472189962/EakCdWTWkAAeFM1.png',
+    'https://media.discordapp.net/attachments/271499861696839680/804753475673260033/image0.jpg',
+    'https://media.discordapp.net/attachments/271499861696839680/804753680679174144/image0.png8',
+    'https://media.discordapp.net/attachments/271499861696839680/804753913911705700/EjHwBkNX0AETIV3.png',
+    'https://media.discordapp.net/attachments/271499861696839680/804754184624013322/image0.jpg',
+]
 rps_emojis = [
     ":reflector:804559738096320542",
     ":rosary:804559698358566922",
@@ -316,6 +325,11 @@ class AmmyBot(commands.Cog):
     async def ike(self, ctx):
         """"""
         await ctx.send(random.choice(ike))
+
+    @commands.command(aliases=["jax!"])
+    async def jax(self, ctx):
+        """"""
+        await ctx.send(random.choice(jax))
 
     @commands.command()
     async def matt(self, ctx):
