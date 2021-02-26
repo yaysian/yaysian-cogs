@@ -42,7 +42,7 @@ jax = [
     'https://media.discordapp.net/attachments/271499861696839680/804753274132496394/image0.jpg',
     'https://media.discordapp.net/attachments/271499861696839680/804753394472189962/EakCdWTWkAAeFM1.png',
     'https://media.discordapp.net/attachments/271499861696839680/804753475673260033/image0.jpg',
-    'https://media.discordapp.net/attachments/271499861696839680/804753680679174144/image0.png8',
+    'https://media.discordapp.net/attachments/271499861696839680/804753680679174144/image0.png',
     'https://media.discordapp.net/attachments/271499861696839680/804753913911705700/EjHwBkNX0AETIV3.png',
     'https://media.discordapp.net/attachments/271499861696839680/804754184624013322/image0.jpg',
 ]
