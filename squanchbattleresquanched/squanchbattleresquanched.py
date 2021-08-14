@@ -5,6 +5,8 @@ import discord
 from redbot.core.bot import Red
 from redbot.core.utils import menus
 
+REQUEST_EMOJIS = ["⭕", "❌"]
+
 
 class SquanchBattleResquanched(commands.Cog):
     """Squanch Battle Resquanched is a remaster of the original Squanch Battle."""
@@ -39,17 +41,9 @@ class SquanchBattleResquanched(commands.Cog):
                 title = "Battle Request"
                 message = f'{ctx.message.author.nick} has challenged {ctx.message.mentions[0].nick} to a **SQUANCH BATTLE!**\n\n⭕ to accept\n❌ to reject'
                 footer = "Squanch Battle Resquanched"
-                colour = ctx.me.colour
-                page = discord.Embed(
-                    title=title, description=message, color=colour)
-                page.set_footer(text=footer)
 
-                CHAR_DICT = {
-                    "⭕": menus.close_menu,
-                    "❌": menus.close_menu,
-                }
-
-                await menus.menu(ctx, pages=[page], controls=CHAR_DICT)
+                message = await self.message(ctx, title, message, footer)
+                await self.set_reactions(REQUEST_EMOJIS)
 
     async def message(self, ctx, title, message, footer=""):
         embed = discord.Embed(
@@ -57,6 +51,10 @@ class SquanchBattleResquanched(commands.Cog):
         embed.set_footer(text=footer)
 
         await ctx.send(embed=embed)
+
+    async def set_reactions(self, message, emojis):
+        for emoji in emojis:
+            await message.add_reaction(emoji)
 
     def create_player(self, player):
         return {
