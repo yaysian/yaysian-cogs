@@ -49,7 +49,7 @@ class SquanchBattleResquanched(commands.Cog):
                     "❌": menus.close_menu,
                 }
 
-                await menus.menu(ctx, pages=page, controls=CHAR_DICT)
+                await menus.menu(ctx, pages=[page], controls=CHAR_DICT)
 
     async def message(self, ctx, title, message, footer=""):
         embed = discord.Embed(
