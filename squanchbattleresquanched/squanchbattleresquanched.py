@@ -37,9 +37,19 @@ class SquanchBattleResquanched(commands.Cog):
                     games.append(logic)
 
                 title = "Battle Request"
-                message = f'{ctx.message.author.nick} has challenged {ctx.message.mentions[0].nick} to a **SQUANCH BATTLE!**'
+                message = f'{ctx.message.author.nick} has challenged {ctx.message.mentions[0].nick} to a **SQUANCH BATTLE!**\n\n⭕ to accept\n❌ to reject'
                 footer = "Squanch Battle Resquanched"
-                await self.message(ctx, title, message, footer)
+                colour = ctx.me.colour
+                page = discord.Embed(
+                    title=title, description=message, color=colour)
+                page.set_footer(text=footer)
+
+                CHAR_DICT = {
+                    "⭕": menus.close_menu,
+                    "❌": menus.close_menu,
+                }
+
+                await menus.menu(ctx, pages=page, controls=CHAR_DICT)
 
     async def message(self, ctx, title, message, footer=""):
         embed = discord.Embed(
