@@ -43,7 +43,7 @@ class SquanchBattleResquanched(commands.Cog):
                 footer = "Squanch Battle Resquanched"
 
                 message = await self.message(ctx, title, message, footer)
-                await self.set_reactions(REQUEST_EMOJIS)
+                await self.set_reactions(message, REQUEST_EMOJIS)
 
     async def message(self, ctx, title, message, footer=""):
         embed = discord.Embed(
