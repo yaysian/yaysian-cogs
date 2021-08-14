@@ -28,7 +28,7 @@ class SquanchBattleResquanched(commands.Cog):
         if ctx.message.mentions:
             if ctx.message.mentions[0].id != ctx.message.author.id:
                 logic = {
-                    'players': [ctx.message.author, ctx.message.mentions[0]],
+                    'players': [self.create_player(ctx.message.author), self.create_player(ctx.message.mentions[0])],
                     'rolls': [0, 0],
                     'hp': [100, 100]
                 }
@@ -37,7 +37,7 @@ class SquanchBattleResquanched(commands.Cog):
                     games.append(logic)
 
                 title = "Battle Request"
-                message = f'{ctx.message.author.nick} has challenged {ctx.message.mentions[0]} to a **SQUANCH BATTLE!**'
+                message = f'{ctx.message.author.nick} has challenged {ctx.message.mentions[0].nick} to a **SQUANCH BATTLE!**'
                 footer = "Squanch Battle Resquanched"
                 await self.message(ctx, title, message, footer)
 
@@ -47,3 +47,9 @@ class SquanchBattleResquanched(commands.Cog):
         embed.set_footer(text=footer)
 
         await ctx.send(embed=embed)
+
+    def create_player(self, player):
+        return {
+            'name': player.nick,
+            'id': player.id,
+        }
