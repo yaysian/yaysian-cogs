@@ -1,0 +1,57 @@
+from redbot.core import commands
+from redbot.core import Config
+import json
+from pathlib import Path
+import os
+import random
+import discord
+import ast
+import copy
+
+from redbot.core.bot import Red
+from redbot.core.utils import menus
+
+
+class SquanchBattleResquanched(commands.Cog):
+    """Squanch Battle Resquanched is a remaster of the original Squanch Battle."""
+
+    def __init__(self, bot: Red):
+        super().__init__()
+        self.bot = bot
+        self.config = Config.get_conf(self, identifier=1234567890)
+        default_user = {
+            'win': 0,
+            'loss': 0
+        }
+        default_guild = {
+            'games': []
+        }
+        self.config.register_user(**default_user)
+        self.config.register_guild(**default_guild)
+
+
+@commands.command()
+async def battle(self, ctx):
+    if ctx.message.mentions:
+        if ctx.message.mentions[0].id != ctx.message.author.id:
+            logic = {
+                'players': [ctx.message.author, ctx.message.mentions[0]],
+                'rolls': [0, 0],
+                'hp': [100, 100]
+            }
+
+            async with self.config.guild(ctx.guild).games() as games:
+                games.append(logic)
+
+            title = "Battle Request"
+            message = f'{ctx.message.author.nick} has challenged {ctx.message.mentions[0]} to a **SQUANCH BATTLE!**'
+            footer = "Squanch Battle Resquanched"
+            await self.message(ctx, title, message, footer)
+
+
+async def message(self, ctx, title, message, footer=""):
+    embed = discord.Embed(
+        title=title, description=message, color=ctx.me.colour)
+    embed.set_footer(text=footer)
+
+    await ctx.send(embed=embed)
