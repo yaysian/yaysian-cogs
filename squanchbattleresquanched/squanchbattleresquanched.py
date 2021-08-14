@@ -50,7 +50,7 @@ class SquanchBattleResquanched(commands.Cog):
             title=title, description=message, color=ctx.me.colour)
         embed.set_footer(text=footer)
 
-        await ctx.send(embed=embed)
+        return await ctx.send(embed=embed)
 
     async def set_reactions(self, message, emojis):
         for emoji in emojis:
