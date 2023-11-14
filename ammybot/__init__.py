@@ -1,5 +1,5 @@
 from .ammybot import AmmyBot
 
 
-def setup(bot):
-    bot.add_cog(AmmyBot(bot))
+async def setup(bot):
+    await bot.add_cog(AmmyBot(bot))
